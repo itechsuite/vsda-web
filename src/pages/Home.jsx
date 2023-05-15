@@ -7,21 +7,21 @@ import Partners from "../components/Partners";
 import CoursesList from "../components/CoursesList";
 
 const Home = () => {
-    return (
-        <div>
-            {/* <Hero /> */}
-            <Banner />
-            <CoursesList />
+  return (
+    <div>
+      {/* <Hero /> */}
+      <Banner />
+      <CoursesList />
 
-            <KeyNotes />
-            {/* <p>Show courses</p> */}
-            <Banner />
+      <KeyNotes />
+      {/* <p>Show courses</p> */}
+      <Banner />
 
-            <FeaturedCourses />
+      <FeaturedCourses />
 
-            <Partners />
-        </div>
-    );
+      <Partners />
+    </div>
+  );
 };
 
 export default Home;

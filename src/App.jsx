@@ -10,6 +10,8 @@ import Tutorial from "./pages/Tutorials";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Courses from "./pages/Courses";
+import CourseList from "./pages/CourseList";
+import CourseDetail from "./pages/CourseDetail";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/courses" element={<Courses />} />
+          <Route path="/courses/:course" element={<CourseList />} />
+          <Route path="/course/detail/:id" element={<CourseDetail />} />
           <Route path="" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/market-place" element={<MarketPlace />} />
