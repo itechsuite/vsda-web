@@ -1,0 +1,30 @@
+on:
+    push:
+        branches:
+            -   deploy
+name: 🚀 Deploy App on Push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+
+    - name: Use Node.js 16
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+      
+    - name: 🔨 Build Project
+      run: |
+        npm install
+        
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{secrets.SERVER}}
+        username: ${{secrets.USERNAME}}
+        password: ${{secrets.PASSWORD}}
+        # server-dir: /backend/

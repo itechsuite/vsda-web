@@ -49,40 +49,21 @@ const CourseDetail = () => {
     return <p>invalid request</p>;
   }
   return (
-    <div className="bg-gray-600 min-h-[90vh] px-3 py-3">
-      <div>bread crumbs</div>
+    <div className="px-2">
+      <div className="min-h-[200px] bg-gray-500">banner</div>
 
-      <div className="flex flex-col gap-4">
-        <h1 className="text-4xl font-extrabold text-white">Course Title</h1>
-
-        <h3 className="text-white">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. In quod, sit
-          dicta eligendi nisi expedita animi quae ipsam perferendis, odit et
-          iusto tenetur aut pariatur laboriosam, nihil dolores blanditiis qui.
-          Natus, ducimus. Totam adipisci veritatis sunt eligendi est ex
-          repellendus, voluptatum provident maxime facilis aliquid architecto id
-          ipsum ab, quasi molestias error consectetur illo sint, quae aperiam
-          voluptatem quisquam officiis!
-        </h3>
-
-        <button className="border w-2/5 px-3 py-4 rounded-full text-white font-bold">
-          Previewe the course
-        </button>
-
-        <div>
-          <h2>What you'll learn</h2>
-        </div>
+      <div className="flex justify-between py-3">
+        <h2 className="font-bold" onClick={() => console.log(course_detail)}>
+          {course_detail.course_title}
+        </h2>
+        <div> {CurrencyFormatter(course_detail.cost)}</div>
       </div>
 
-      <div>
-        <h1>Enroll this course</h1>
+      <p className="text-justify px-2">{course_detail.details}</p>
 
-        <p>Get this course plus top rated picks</p>
+      <TabInstance categories={categories} />
 
-        <div>
-          <button>Get Started</button>
-        </div>
-      </div>
+      <Testimony1 />
     </div>
   );
 };

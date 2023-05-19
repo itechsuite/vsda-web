@@ -39,7 +39,7 @@ export const GET_COURSE_DETAIL = async (id) => {
   try {
     const response = await axios.get(`${ROUTE_GET_COURSE_DETAILS}/${id}`);
 
-    return response.data;
+    return response.data.data;
   } catch (error) {
     const { response, message } = error;
 
