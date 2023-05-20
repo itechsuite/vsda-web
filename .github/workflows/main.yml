@@ -16,7 +16,7 @@ jobs:
       with:
         node-version: '16'
       
-    - name: 🔨 Installing Node Modules Project
+    - name: 🔨 Installing Node Modules Projects
       run:  npm ci
     
     - name: Building project
