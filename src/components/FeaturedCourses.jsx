@@ -19,6 +19,7 @@ const FeaturedCourses = () => {
       <div className="grid grid-cols-2 gap-3  ">
         {courses &&
           courses.length > 0 &&
+          courses.length > 0 &&
           courses.map((course) => {
             return <CoursesViewModels key={course.id} payload={course} />;
           })}
