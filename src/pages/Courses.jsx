@@ -57,6 +57,7 @@ const Courses = () => {
         <div className="py-5">
           <Slider {...settings}>
             {courses &&
+              courses.length > 0 &&
               courses.map((course) => {
                 return (
                   <CoursesListModel

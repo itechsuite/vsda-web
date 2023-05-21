@@ -19,12 +19,12 @@ function App() {
       <Routes>
         <Route element={<PublicRoutes />}>
           <Route path="/about" element={<About />} />
-          <Route path="" element={<Contact />} />
-          {/* <Route path="/contact" element={<Contact />} /> */}
+          {/* <Route path="" element={<Contact />} /> */}
+          <Route path="/contact" element={<Contact />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/:course" element={<CourseList />} />
           <Route path="/course/detail/:id" element={<CourseDetail />} />
-          {/* <Route path="" element={<Home />} /> */}
+          <Route path="" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/market-place" element={<MarketPlace />} />
           <Route path="/technical-traning" element={<TechnicalTraining />} />
