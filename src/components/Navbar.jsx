@@ -29,16 +29,16 @@ const Navbar = () => {
   ];
   return (
     <div>
-      <div className="flex space-x-4  h-[74px] fixed z-50  px-4  flex-col py-5">
+      <div className="flex space-x-4  h-[74px] fixed z-50  px-4  flex-col py-5 text-white">
         <Bars3BottomLeftIcon className="h-6 w-6 md:hidden" />
-        <h2 className="text-3xl font-bold cursor-pointer">VSDA</h2>
+        <h2 className="text-3xl font-extrabold cursor-pointer">VSDA</h2>
 
         <div className="flex gap-4 justify-center pt-10 font-bold items-center">
           {menus &&
             menus.length > 1 &&
             menus.map((menu, index) => {
               return (
-                <Link to={menu.link}>
+                <Link to={menu.link} className="hover:font-bold font-light">
                   <p>{menu.name}</p>
                 </Link>
               );

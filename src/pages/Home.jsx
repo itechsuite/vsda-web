@@ -9,8 +9,8 @@ import CoursesList from "../components/CoursesList";
 const Home = () => {
   return (
     <div>
-      <section className="min-h-[80vh]  bg-cover flex flex-col gap-3 justify-center items-center ">
-        <p className="text-6xl font-bold">
+      <section className="min-h-[80vh]  bg-cover flex flex-col gap-3 justify-center items-center  bg-[url('https://img.freepik.com/premium-photo/smile-black-female-industrial-electrical-engineer-with-safety-hardhat-her-head-standing-front-control-panel-touching-display-monitor-cnc-machines-factory-ai-generative_28914-4102.jpg?w=2000')]">
+        <p className="text-6xl font-bold text-white">
           Skills <span className="text-blue-400">Market Place</span>
         </p>
 
@@ -38,11 +38,11 @@ const Home = () => {
       </section>
       {/* <Hero /> */}
       {/* <Banner /> */}
-      <CoursesList />
+      {/* <CoursesList /> */}
 
       <KeyNotes />
       {/* <p>Show courses</p> */}
-      <Banner />
+      {/* <Banner /> */}
 
       <FeaturedCourses />
 
