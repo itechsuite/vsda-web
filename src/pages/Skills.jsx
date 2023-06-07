@@ -76,7 +76,7 @@ const Skills = () => {
       </div>
 
       <div className="bg-white min-h-[50vh] px-5 py-10 overflow-hidden ">
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4">
           {artisans &&
             artisans.length >= 1 &&
             artisans.map((artisan, index) => {
