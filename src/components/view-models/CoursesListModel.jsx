@@ -1,27 +1,15 @@
+import { KeyIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const CoursesListModel = ({ title, image }) => {
+const CoursesListModel = ({ title, details }) => {
   const navigate = useNavigate();
   return (
-    <div
-      onClick={() => navigate(`/courses/${title}`)}
-      className="min-h-[200px] flex flex-col  mx-1"
-    >
-      <div className="h-[200px]  object-cover">
-        <img
-          className="object-cover h-full"
-          src={
-            image ||
-            "https://img.freepik.com/free-photo/man-electrical-technician-working-switchboard-with-fuses_169016-24062.jpg"
-          }
-          alt="image"
-        />
-      </div>
+    <div className="max-w-xs rounded-md bg-white min-h-[200px] flex flex-col gap-5 px-3 py-5 cursor-pointer hover:bg-blue-400 hover:text-white">
+      <KeyIcon className="w-[30px] hover:text-white " />
 
-      <div className="bg-white flex flex-col  px-3 py-3">
-        <p>{title || "title"}</p>
-      </div>
+      <p className="hover:font-extrabold ">{title || "Brand"} </p>
+      <p className="w-4/5">{details || "description"}</p>
     </div>
   );
 };

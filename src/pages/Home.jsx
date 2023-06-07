@@ -5,11 +5,13 @@ import FeaturedCourses from "../components/FeaturedCourses";
 import KeyNotes from "../components/KeyNotes";
 import Partners from "../components/Partners";
 import CoursesList from "../components/CoursesList";
+import { KeyIcon } from "@heroicons/react/24/outline";
+import Testimony1 from "../components/Testimonies/Testimony1";
 
 const Home = () => {
   return (
     <div>
-      <section className="min-h-[80vh]  bg-cover flex flex-col gap-3 justify-center items-center  bg-[url('https://img.freepik.com/premium-photo/smile-black-female-industrial-electrical-engineer-with-safety-hardhat-her-head-standing-front-control-panel-touching-display-monitor-cnc-machines-factory-ai-generative_28914-4102.jpg?w=2000')]">
+      <section className="min-h-[100vh]  bg-cover flex flex-col gap-3 justify-center items-center  bg-[url('/src/assets/images/lady.jpg')]">
         <p className="text-6xl font-bold text-white">
           Skills <span className="text-blue-400">Market Place</span>
         </p>
@@ -37,14 +39,46 @@ const Home = () => {
         </div>
       </section>
       {/* <Hero /> */}
-      {/* <Banner /> */}
-      {/* <CoursesList /> */}
 
-      <KeyNotes />
+      <section className="min-h-[80vh] px-5 py-5 ">
+        <div className="flex flex-row gap-4">
+          <div>
+            <img
+              src="https://proguards.ancorathemes.com/wp-content/uploads/2022/02/home-01-copyright.jpg"
+              alt=""
+            />
+          </div>
+
+          <div className="flex flex-col justify-center gap-6">
+            <p className="uppercase text-gray-500"> What we do </p>
+            <p className="font-normal text-2xl">
+              We Provide Services for Multiple{" "}
+              <span className="font-bold">
+                Customers in Various Industries Worldwide
+              </span>
+            </p>
+
+            <p className="font-light">
+              Dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+              aspernatur aut odit aut fugit.
+            </p>
+
+            <button className="btn  rounded-none bg-blue-500 border-none">
+              About us
+            </button>
+          </div>
+        </div>
+      </section>
+      {/* <Banner /> */}
+      <CoursesList />
+
+      <Testimony1 />
+
+      {/* <KeyNotes /> */}
       {/* <p>Show courses</p> */}
       {/* <Banner /> */}
 
-      <FeaturedCourses />
+      {/* <FeaturedCourses /> */}
 
       <Partners />
     </div>

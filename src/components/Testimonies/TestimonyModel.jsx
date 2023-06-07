@@ -12,19 +12,15 @@ const TestimonyModel = () => {
     randomPerson();
   }, []);
   return (
-    <div className="border max-w-[300px] p-4">
-      <div className="flex  gap-4">
-        <div className="rounded-full bg-blue-500 w-[30px] h-[30px]"> .</div>
-        <div>
-          <p>name</p>
-        </div>
-      </div>
+    <div className=" max-w-[400px] p-4 bg-white min-h-[250px] mx-5  flex flex-col justify-around">
+      <p className="font-light ">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, error
+        vel aperiam
+      </p>
 
-      <div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam,
-          error vel aperiam
-        </p>
+      <div className="font-bold">
+        <p className="">John doe</p>
+        <p className="text-gray-400">Expert</p>
       </div>
     </div>
   );

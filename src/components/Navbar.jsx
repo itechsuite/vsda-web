@@ -8,7 +8,7 @@ const Navbar = () => {
   const menus = [
     {
       name: "Homepage",
-      link: "/homepage",
+      link: "/",
     },
     {
       name: "Skills & Market Place",
@@ -16,20 +16,20 @@ const Navbar = () => {
     },
     {
       name: "Online",
-      link: "/homepage",
+      link: "/online",
     },
     {
       name: "Courses",
-      link: "/homepage",
+      link: "/courses",
     },
     {
       name: "Contact Us",
-      link: "/homepage",
+      link: "/contact",
     },
   ];
   return (
     <div>
-      <div className="flex space-x-4  h-[74px] fixed z-50  px-4  flex-col py-5 text-white">
+      <div className="flex space-x-4   z-50  px-4  flex-col py-8 text-black">
         <Bars3BottomLeftIcon className="h-6 w-6 md:hidden" />
         <h2 className="text-3xl font-extrabold cursor-pointer">VSDA</h2>
 
