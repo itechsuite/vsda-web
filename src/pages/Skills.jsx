@@ -57,7 +57,7 @@ const Skills = () => {
                     onClick={handleSkillClick}
                     key={index}
                   >
-                    {data.name}
+                    {data.display}
                   </p>
                 );
               })}

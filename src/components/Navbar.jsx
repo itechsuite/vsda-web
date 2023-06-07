@@ -11,7 +11,7 @@ const Navbar = () => {
       link: "/",
     },
     {
-      name: "Skills & Market Place",
+      name: "Skills  Market Place",
       link: "/skills",
     },
     {
