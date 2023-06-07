@@ -75,7 +75,7 @@ const Skills = () => {
         <div className="overflow-hidden  "></div>
       </div>
 
-      <div className="bg-white min-h-[50vh] px-5 py-10 overflow-hidden">
+      <div className="bg-white min-h-[50vh] px-5 py-10 overflow-hidden ">
         <div className="grid grid-cols-3 gap-4">
           {artisans &&
             artisans.length >= 1 &&
