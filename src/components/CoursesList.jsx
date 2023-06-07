@@ -35,7 +35,7 @@ const CoursesList = () => {
           aspernatur aut odit aut fugit.
         </p>
 
-        <div className="grid grid-flow-col">
+        <div className="grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {categories
             ? categories.map((category, index) => {
                 return <CoursesListModel title={category.title} />;
