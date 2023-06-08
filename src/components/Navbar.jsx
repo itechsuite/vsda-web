@@ -3,7 +3,7 @@ import {
   Bars3BottomLeftIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
   const menus = [
     {
@@ -38,9 +38,16 @@ const Navbar = () => {
             menus.length > 1 &&
             menus.map((menu, index) => {
               return (
-                <Link to={menu.link} className="hover:font-bold font-light">
+                <NavLink
+                  to={menu.link}
+                  className={({ isActive, isPending }) =>
+                    isActive
+                      ? "after:h-1  after:bg-blue-400  after:absolute relative  after:w-full after:-bottom-4 after:left-0  after:content-['']"
+                      : "font-light"
+                  }
+                >
                   <p>{menu.name}</p>
-                </Link>
+                </NavLink>
               );
             })}
         </div>

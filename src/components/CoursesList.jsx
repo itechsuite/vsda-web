@@ -25,7 +25,7 @@ const CoursesList = () => {
   return (
     <section className="bg-gray-100">
       <div className="px-4 py-5 flex flex-col gap-4 ">
-        <p className="uppercase  text-gray-400">COURses</p>
+        <p className="uppercase  text-gray-400">Courses</p>
         <p className="font-normal text-2xl">
           Get trained by
           <span className="font-bold"> Industry Professionals</span>
