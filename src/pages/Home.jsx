@@ -56,7 +56,7 @@ const Home = () => {
       {/* <Hero /> */}
 
       {/* <Banner /> */}
-      {/* <CoursesList /> */}
+      <CoursesList />
 
       <Testimony1 />
 
@@ -64,7 +64,7 @@ const Home = () => {
       {/* <p>Show courses</p> */}
       {/* <Banner /> */}
 
-      {/* <FeaturedCourses /> */}
+      <FeaturedCourses />
 
       <Partners />
     </div>

@@ -36,9 +36,15 @@ const CoursesList = () => {
         </p>
 
         <div className="grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {categories
-            ? categories.map((category, index) => {
-                return <CoursesListModel title={category.title} />;
+          {categories && categories.length >= 1
+            ? categories.map((data, index) => {
+                return (
+                  <CoursesListModel
+                    payload={data}
+                    // title={data.title}
+                    // thumbnail={data.thumbnail}
+                  />
+                );
               })
             : null}
         </div>

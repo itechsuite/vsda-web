@@ -94,7 +94,7 @@ const Skills = () => {
               : null}
           </div>
 
-          <div className="bg-white px-5 py-4 rounded-lg w-full  flex justify-center  ">
+          <div className="bg-white px-5 py-4 rounded-lg w-full  flex justify-center flex-col  ">
             <p>Get trained, and join our team</p>
 
             <button className="bg-[#3091E9] text-white px-4 rounded-full py-2 self-center ">

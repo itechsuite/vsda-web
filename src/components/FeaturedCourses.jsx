@@ -16,7 +16,7 @@ const FeaturedCourses = () => {
   }, []);
   return (
     <div className="  px-5 py-10 bg-white  ">
-      <div className="grid grid-cols-2 gap-3  ">
+      <div className="grid grid-cols-2 gap-3  md:grid-cols-4 ">
         {courses &&
           courses.length > 0 &&
           courses.length > 0 &&

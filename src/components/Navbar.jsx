@@ -15,7 +15,7 @@ const Navbar = () => {
       link: "/skills",
     },
     {
-      name: "Online",
+      name: "Online Store",
       link: "/online",
     },
     {
@@ -29,11 +29,9 @@ const Navbar = () => {
   ];
   return (
     <div>
-      <div className="flex space-x-4   z-50  px-4  flex-col py-8 text-black">
-        <Bars3BottomLeftIcon className="h-6 w-6 md:hidden" />
-        <h2 className="text-3xl font-extrabold cursor-pointer">VSDA</h2>
-
-        <div className="flex gap-4 justify-center pt-10 font-bold items-center">
+      <div className="flex     px-4  flex-row py-8 text-black item-center  justify-between   ">
+        <h2 className="text-3xl font-extrabold cursor-pointer ">VSDA</h2>
+        <div className="flex gap-4  pt-10 font ">
           {menus &&
             menus.length > 1 &&
             menus.map((menu, index) => {
@@ -51,16 +49,6 @@ const Navbar = () => {
               );
             })}
         </div>
-
-        {/* <div className="flex flex-row gap-3">
-          <Link to={"/courses"} className="hidden md:block text-sm">
-            Courses
-          </Link>
-          <h3 className="hidden md:block text-sm"> News</h3>
-          <h3 className="hidden md:block text-sm"> About</h3>
-          <h3 className="hidden md:block text-sm"> Contact</h3>
-          <h3 className="hidden md:block text-sm"> Tutorials</h3>
-        </div> */}
       </div>
     </div>
   );

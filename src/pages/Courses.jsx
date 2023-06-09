@@ -54,7 +54,7 @@ const Courses = () => {
         <p className="font-bold text-3xl">What are you Interested In? </p>
         <p>Checkout our courses </p>
 
-        <div className="py-5">
+        {/* <div className="py-5">
           <Slider {...settings}>
             {courses &&
               courses.length > 0 &&
@@ -68,7 +68,7 @@ const Courses = () => {
                 );
               })}
           </Slider>
-        </div>
+        </div> */}
       </section>
 
       <div
