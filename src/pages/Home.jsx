@@ -15,7 +15,7 @@ const Home = () => {
       {/* <Banner link={require("../assets/images/home/electrician.jpg")} /> */}
 
       <section className="min-h-[100vh] relative  bg-cover flex flex-col gap-3   items-center justify-center  bg-[url('/src/assets/images/lady.jpg')]  ">
-        <div className=" flex  gap-3  flex-col   right-20  top-32 bottom-30 items-center justify-center">
+        <div className=" flex  gap-3  flex-col   right-20  top-32 bottom-30 items-center justify-center  px-20">
           <p className="font-extrabold text-white  md:text-7xl flex flex-col  text-4xl ">
             Skills Market <span className=""> Place</span>
           </p>
