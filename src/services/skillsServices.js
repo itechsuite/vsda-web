@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ROUTE_SHOW_ALL_SKILLS } from "../core/ApiRoutes";
 
-export const GET_ALL_SKILLS = async (payload) => {
+export const GET_ALL_SKILLS = async () => {
   try {
     const response = await axios.get(`${ROUTE_SHOW_ALL_SKILLS}`);
 

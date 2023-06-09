@@ -23,7 +23,7 @@ const Skills = () => {
 
   const fetchSkills = async () => {
     const res = await GET_ALL_SKILLS();
-    console.log(res);
+    console.log(res, "aaa");
 
     // if (!res || !res.length >= 1) {
     //   return;
