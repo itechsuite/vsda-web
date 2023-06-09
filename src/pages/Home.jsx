@@ -38,7 +38,7 @@ const Home = () => {
 
       <Banner link={require("../assets/images/home/electrician.jpg")} />
 
-      <CoursesList />
+      {/* <CoursesList /> */}
 
       <Testimony1 />
 

@@ -18,13 +18,13 @@ const FeaturedCourses = () => {
   }, []);
   return (
     <div className="  px-5 py-10 bg-white  ">
-      <div className="grid grid-cols-3 gap-3  md:grid-cols-3 ">
-        {courses &&
-          courses.length > 0 &&
-          courses.map((course) => {
-            return <CoursesViewModels key={course.id} payload={course} />;
-          })}
-      </div>
+      {/* <div className="grid grid-cols-3 gap-3  md:grid-cols-3 ">
+        {courses && courses.length >= 1
+          ? courses.map((data, index) => {
+              return <CoursesViewModels key={index} payload={data} />;
+            })
+          : null}
+      </div> */}
     </div>
 
     // sss
