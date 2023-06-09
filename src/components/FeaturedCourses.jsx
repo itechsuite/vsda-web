@@ -24,6 +24,8 @@ const FeaturedCourses = () => {
           })}
       </div>
     </div>
+
+    // sss
   );
 };
 
