@@ -74,7 +74,7 @@ const Skills = () => {
       <div className="  py-4 gap-5   px-5 h-[80vh] items-center justify-center flex  flex-row z-50 ">
         <div className="bg-[#e9e9e9] rounded-md min-w-max px-5 py-10  h-fit sticky z-40 ">
           <p className="text-2xl font-bold after:h-1  after:bg-[#989292]  after:absolute relative  after:w-2/3 after:bottom-0 after:left-1 after:content-[''] ">
-            Skills <span className="text-[#3091E9]"> Market Place </span>
+            Find a Skilled <span className="text-[#3091E9]"> Technician </span>
           </p>
 
           <div className="py-6 col-span-8">
@@ -94,7 +94,7 @@ const Skills = () => {
               : null}
           </div>
 
-          <div className="bg-white px-5 py-4 rounded-lg w-full  flex justify-center  ">
+          <div className="bg-white px-5 py-4 rounded-lg w-full  flex justify-center flex-col gap-3  ">
             <p>Get trained, and join our team</p>
 
             <button className="bg-[#3091E9] text-white px-4 rounded-full py-2 self-center ">
