@@ -35,7 +35,7 @@ const CoursesList = () => {
           aspernatur aut odit aut fugit.
         </p>
 
-        <div className="grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
           {categories && categories.length >= 1
             ? categories.map((data, index) => {
                 return (
