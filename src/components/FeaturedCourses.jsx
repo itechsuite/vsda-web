@@ -6,6 +6,8 @@ const FeaturedCourses = () => {
   const [courses, setCourses] = useState([]);
   const fetchAllCourse = async () => {
     const res = await GET_ALL_COURSES();
+
+    console.log(res, "amaka");
     if (res.length >= 1) {
       setCourses(res.slice(3));
     }

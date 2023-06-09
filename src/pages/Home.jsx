@@ -14,37 +14,21 @@ const Home = () => {
     <div>
       {/* <Banner link={require("../assets/images/home/electrician.jpg")} /> */}
 
-      <section className="min-h-[100vh] relative  bg-cover flex flex-col gap-3    bg-[url('/src/assets/images/lady.jpg')]  ">
-        <div className="absolute flex  gap-3  flex-col   right-10 bottom-36">
-          <p className="text-6xl font-bold text-white">
-            Skills <span className="text-blue-400">Market Place</span>
+      <section className="min-h-[100vh] relative  bg-cover flex flex-col gap-3   items-center justify-center  bg-[url('/src/assets/images/lady.jpg')]  ">
+        <div className=" flex  gap-3  flex-col   right-20  top-32 bottom-30 items-center justify-center">
+          <p className="font-extrabold text-white  md:text-7xl flex flex-col  text-4xl ">
+            Skills Market <span className=""> Place</span>
           </p>
 
-          <div className="flex gap-3  mx-8">
-            <div className="h-[20px] w-[20px] bg-[#3091E9] rounded-full">
-              &nbsp;
-            </div>
-            <div className="h-[20px] w-[20px] bg-[#3091E9] rounded-full">
-              &nbsp;
-            </div>
-            <div className="h-[20px] w-[20px] bg-[#3091E9] rounded-full">
-              &nbsp;
-            </div>
-          </div>
-
-          <div className=" bg-[#3091E9] px-5 py-8 rounded-md flex items-center gap-4 text-white">
-            <p className="">
-              Find a technician and service personnel trained and certified by
-              us
-            </p>
-
-            <Link
-              to={"/skills"}
-              className="btn lowercase bg-white text-[#3091E9] border-none font-bold"
-            >
-              learn more
-            </Link>
-          </div>
+          <p className="font-bold">
+            Find a technician and service personnel trained and certified by us
+          </p>
+          <Link
+            to={"/skills"}
+            className="btn normal  bg-white text-[#3091E9] border-none font-bold w-2/4 rounded-full"
+          >
+            Learn More
+          </Link>
         </div>
       </section>
 

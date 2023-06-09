@@ -37,13 +37,14 @@ const CoursesViewModels = ({ payload, onClick }) => {
         <div className="flex flex-row justify-between items-center  ">
           <div className="flex flex-row bg-yellow-100  gap-1 rounded-full px-3 text-sm justify-center items-center">
             <div className="bg-black rounded-full w-2 h-2">&nbsp;</div>
-            <p className="text-xs">web design</p>
+            <p className="text-xs uppercase">{payload.category}</p>
           </div>
 
           <p>${cost}</p>
         </div>
 
         <div>
+          <p className="uppercase  font-bold">{payload.course_title}</p>
           <p>{details}</p>
         </div>
       </div>
