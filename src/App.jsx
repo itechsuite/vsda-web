@@ -14,6 +14,7 @@ import CourseList from "./pages/CourseList";
 import CourseDetail from "./pages/CourseDetail";
 import Skills from "./pages/Skills";
 import OnlineStore from "./pages/OnlineStore";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/courses/:course" element={<CourseList />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/online" element={<OnlineStore />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/course/detail/:id" element={<CourseDetail />} />
           <Route path="" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />
