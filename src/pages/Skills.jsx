@@ -74,10 +74,10 @@ const Skills = () => {
       <div className="  py-4 gap-5   px-5 h-[80vh] items-center justify-center flex  flex-row z-50 ">
         <div className="bg-[#e9e9e9] rounded-md min-w-max px-5 py-10  h-fit sticky z-40 ">
           <p className="text-2xl font-bold after:h-1  after:bg-[#989292]  after:absolute relative  after:w-2/3 after:bottom-0 after:left-1 after:content-[''] ">
-            Find a Skilled <span className="text-[#3091E9]"> Technician </span>
+            Find a Skilled <span className="text-[#3091E9]"> Personel </span>
           </p>
 
-          <div className="py-6 col-span-8">
+          <div className="py-6 col-span-8 flex flex-col gap-3">
             {skill && skill.length >= 1
               ? skill.map((data, index) => {
                   return (
