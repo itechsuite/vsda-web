@@ -17,7 +17,7 @@ const CoursesViewModels = ({ payload, onClick }) => {
     thumbnail,
   } = payload;
   return (
-    <div className="flex  rounded-md flex-col bg-white cursor-pointer hover:shadow-2xl w-3/4">
+    <div className="flex  rounded-md flex-col bg-white cursor-pointer hover:shadow-2xl">
       <div
         className="min-h-[200px] relative bg-cover bg-center rounded-md"
         style={{

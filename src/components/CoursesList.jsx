@@ -18,12 +18,13 @@ const CoursesList = () => {
   var settings = {
     dots: true,
     infinite: true,
+    autoplay: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
   };
   return (
-    <section className="bg-gray-100">
+    <section className="bg-gray-100 py-6">
       <div className="px-4 py-5 flex flex-col gap-4 ">
         <p className="uppercase  text-gray-400">Courses</p>
         <p className="font-normal text-2xl">
@@ -35,19 +36,13 @@ const CoursesList = () => {
           aspernatur aut odit aut fugit.
         </p>
 
-        <div className="grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+        <Slider {...settings}>
           {categories && categories.length >= 1
             ? categories.map((data, index) => {
-                return (
-                  <CoursesListModel
-                    payload={data}
-                    // title={data.title}
-                    // thumbnail={data.thumbnail}
-                  />
-                );
+                return <CoursesListModel payload={data} />;
               })
             : null}
-        </div>
+        </Slider>
       </div>
     </section>
   );

@@ -7,7 +7,7 @@ const FeaturedCourses = () => {
   const fetchAllCourse = async () => {
     const res = await GET_ALL_COURSES();
     if (res.length >= 1) {
-      setCourses(res);
+      setCourses(res.slice(3));
     }
   };
 
@@ -16,9 +16,8 @@ const FeaturedCourses = () => {
   }, []);
   return (
     <div className="  px-5 py-10 bg-white  ">
-      <div className="grid grid-cols-2 gap-3  md:grid-cols-4 ">
+      <div className="grid grid-cols-3 gap-3  md:grid-cols-3 ">
         {courses &&
-          courses.length > 0 &&
           courses.length > 0 &&
           courses.map((course) => {
             return <CoursesViewModels key={course.id} payload={course} />;
