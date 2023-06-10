@@ -37,12 +37,12 @@ const Courses = () => {
         <p className="font-extrabold text-white text-6xl">Courses</p>
 
         <div className="items-start text-white font-semibold w-full px-5 ">
-          <p>Courses Category</p>
+          <p className="font-bold">Courses Category</p>
 
           <div className="grid grid-cols-4 gap-5">
             {category && category.length >= 1 ? (
               category.map((cat, index) => {
-                return <p>cat</p>;
+                return <p className="cursor-pointer">{cat.title}</p>;
               })
             ) : (
               <p> no category found</p>

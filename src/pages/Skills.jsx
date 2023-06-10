@@ -66,9 +66,7 @@ const Skills = () => {
     <section
       className="min-h-[100vh] flex flex-row"
       style={{
-        // background: "rgba(0,122,204,0.01)",
         backgroundImage: `url(${image}) `,
-        //   background: "rgba(0, 0, 0, 0.3)",
       }}
     >
       <div className="  py-4 gap-5   px-5 h-[80vh] items-center justify-center flex  flex-row z-50 ">
