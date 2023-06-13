@@ -2,12 +2,15 @@ import { assertAwaitExpression } from "@babel/types";
 import React, { useEffect, useState } from "react";
 import {
   GET_ALL_COURSES,
+  GET_ALL_COURSE_BY_CATEGORY,
   GET_ALL_COURSE_CATEGORY,
 } from "../services/CourseServices";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [category, setCategory] = useState([]);
+  const [selected, setSelected] = useState([]);
+
   var settings = {
     dots: true,
     // infinite: true,
@@ -20,10 +23,18 @@ const Courses = () => {
     setCategory(res);
     console.log(res);
   };
+  const fetchCourseByCategory = async (category) => {
+    const res = await GET_ALL_COURSE_BY_CATEGORY(category);
+    console.log(res);
+  };
 
   useEffect(() => {
     fetchCourseCategory();
   }, []);
+
+  useEffect(() => {
+    fetchCourseByCategory(selected);
+  }, [selected]);
 
   return (
     <section className="py-4 min-h-[90vh] px-5 ">
@@ -39,10 +50,17 @@ const Courses = () => {
         <div className="items-start text-white font-semibold w-full px-5 ">
           <p className="font-bold">Courses Category</p>
 
-          <div className="grid grid-cols-4 gap-5">
+          <div className="grid grid-cols-4 gap-5 py-5">
             {category && category.length >= 1 ? (
               category.map((cat, index) => {
-                return <p className="cursor-pointer">{cat.title}</p>;
+                return (
+                  <p
+                    className="cursor-pointer btn"
+                    onClick={() => setSelected(cat.title)}
+                  >
+                    {cat.title}
+                  </p>
+                );
               })
             ) : (
               <p> no category found</p>

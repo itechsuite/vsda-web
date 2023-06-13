@@ -8,7 +8,7 @@ const PublicRoutes = () => {
     <div className="flex flex-col gap-2">
       <Navbar />
 
-      <div className="min-h-[100vh]">
+      <div className="min-h-[100vh] z-40 ">
         <Outlet />
       </div>
 

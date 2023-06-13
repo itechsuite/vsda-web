@@ -8,12 +8,20 @@ const FormInput = ({
   onChange,
   id,
   placeholder,
+  className,
 }) => {
   return (
-    <div className="flex flex-col gap-3 w-full  uppercase text-gray-500 font-light ">
+    <div
+      className={[
+        "flex flex-col gap-3 w-full  uppercase text-gray-500 font-light ",
+        className,
+      ]}
+    >
       {/* <label htmlFor="">{title || "labeel"}</label> */}
       <input
-        className=" py-3 rounded-sm  border-b-2 outline-none"
+        className={
+          " py-3 rounded-sm  border-b-2 outline-none bg-transparent w-full"
+        }
         type={type || "text"}
         placeholder={placeholder || "dummy"}
         id={id}

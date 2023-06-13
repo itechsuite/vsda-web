@@ -34,7 +34,6 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/market-place" element={<MarketPlace />} />
           <Route path="/technical-traning" element={<TechnicalTraining />} />
-          <Route path="/tutorials" element={<Tutorial />} />
         </Route>
       </Routes>
     </div>

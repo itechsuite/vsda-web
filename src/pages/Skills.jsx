@@ -62,6 +62,7 @@ const Skills = () => {
     const { value, id } = e.target;
     setValues({ ...values, [id]: value });
   };
+
   return (
     <section
       className="min-h-[100vh] flex flex-row"
