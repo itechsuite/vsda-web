@@ -78,9 +78,9 @@ const Skills = () => {
         backgroundImage: `linear-gradient(to bottom, rgba(97,165,250, 0.52), rgba(0,0,0, 0.93)),
         url('images/background.jpg') ,url(${image})`,
       }}
-      className="flex "
+      className="flex flex-col md:flex-row "
     >
-      <div className="  py-4 gap-5   px-5 h-[80vh] items-center justify-center flex  flex-row z-50 ">
+      <div className="  py-4 gap-5 px-5 h-[80vh] items-center justify-center flex flex-row z-50 ">
         <div className="bg-[#e9e9e9] rounded-md min-w-max px-5 py-10  h-fit sticky z-40 ">
           <p className="text-2xl font-bold after:h-1  after:bg-[#989292]  after:absolute relative  after:w-2/3 after:bottom-0 after:left-1 after:content-[''] ">
             Find a Skilled <span className="text-[#3091E9]"> Personel </span>
@@ -153,6 +153,7 @@ const Skills = () => {
           </div>
         )}
       </div>
+
       <Modal1 visible={modal} onClose={() => setModal(false)}>
         <div className="">
           <div>

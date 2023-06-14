@@ -75,7 +75,7 @@ const CourseDetail = () => {
     e.preventDefault();
 
     const { course_id, course_name, email, fullname, phoneNumber } = values;
-    alert(JSON.stringify(values));
+    // alert(JSON.stringify(values));
 
     if (
       course_name === "" ||
@@ -104,7 +104,7 @@ const CourseDetail = () => {
             url('images/background.jpg') ,url(${course_detail.thumbnail})`,
           }}
         >
-          <h1 className="text-4xl font-extrabold  text-white">
+          <h1 className="text-4xl font-extrabold  text-white text-center">
             {course_detail.course_title}
           </h1>
 
@@ -142,10 +142,6 @@ const CourseDetail = () => {
           Enroll this course
         </button>
       </div>
-
-      {/* <Modal1 onClose={() => setEnroll(false)} visible={enroll}>
-        <div>use me</div>
-      </Modal1> */}
 
       <Modal1 visible={modal} onClose={() => setModal(false)}>
         {success === false && (

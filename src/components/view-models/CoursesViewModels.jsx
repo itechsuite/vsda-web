@@ -18,9 +18,9 @@ const CoursesViewModels = ({ payload, onClick }) => {
     thumbnail,
   } = payload;
   return (
-    <div className="flex  rounded-md flex-col bg-white cursor-pointer hover:shadow-2xl">
+    <div className="flex  rounded-md flex-col bg-white cursor-pointer hover:shadow-lg py-3">
       <div
-        className="min-h-[200px] relative bg-cover bg-center rounded-md"
+        className="min-h-[200px] relative bg-cover bg-center rounded-tr-md rounded-tl-md "
         style={{
           backgroundImage: `url(${thumbnail})`,
         }}
@@ -50,10 +50,10 @@ const CoursesViewModels = ({ payload, onClick }) => {
         </div>
       </div>
 
-      <div className=" self-center py-3">
+      <div className=" self-center text-center py-3 w-full ">
         <button
           onClick={onClick}
-          className="bg-blue-600 w-full px-10 py-1 text-white"
+          className="bg-blue-600 w-3/4 px-10 py-3 text-white rounded-md "
         >
           {" "}
           enroll

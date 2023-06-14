@@ -60,13 +60,20 @@ const Courses = () => {
         <div className="items-start text-white font-semibold w-full px-5 ">
           <p className="font-bold">Courses Category</p>
 
-          <div className="grid grid-cols-4 gap-5 py-5">
+          <div className="grid md:grid-cols-4 grid-cols-2 gap-5 py-5">
             {category && category.length >= 1 ? (
               category.map((cat, index) => {
                 return (
                   <p
-                    className="cursor-pointer btn"
-                    onClick={() => fetchCourseByCategory(cat.title)}
+                    className={[
+                      selected === cat.title
+                        ? "btn bg-blue-300 font-extrabold hover:bg-blue-300"
+                        : `cursor-pointer btn hover:bg-blue-300`,
+                    ]}
+                    onClick={() => {
+                      setSelected(cat.title);
+                      fetchCourseByCategory(cat.title);
+                    }}
                   >
                     {cat.title}
                   </p>
