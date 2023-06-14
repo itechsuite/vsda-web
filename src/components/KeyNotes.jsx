@@ -1,36 +1,44 @@
 import React from "react";
 import KeyNotesModel from "./view-models/KeyNotesModel";
 
-import { CreditCardIcon } from "@heroicons/react/24/outline";
+import {
+  BookOpenIcon,
+  BuildingStorefrontIcon,
+  CreditCardIcon,
+  GlobeEuropeAfricaIcon,
+  WrenchScrewdriverIcon,
+} from "@heroicons/react/24/outline";
 const KeyNotes = () => {
   return (
     <div className="px-3 py-5 bg-white flex flex-col justify-center items-center">
-      <div className="flex flex-initial gap-0">
+      <div className="flex md:flex-initial gap-0   flex-col">
         <KeyNotesModel
+          title="Skills Market Place"
+          destination={"/skills"}
           image={
-            <CreditCardIcon
-              className="w-10 text-gray-300"
-              title="credit card"
-            />
+            <WrenchScrewdriverIcon className="w-10 text-gray-300 hover:scale-50 hover:text-white" />
           }
         />
         <KeyNotesModel
-          title="Flexible training"
+          title="Online Store"
+          destination={"/online"}
           image={
-            <CreditCardIcon className="w-10 text-gray-300 hover:text-white" />
+            <BuildingStorefrontIcon className="w-10 text-gray-300 hover:scale-50 hover:text-white" />
           }
         />
         <KeyNotesModel
+          title="Capacity Development"
+          destination={"/courses"}
           image={
-            <CreditCardIcon
-              className="w-10 text-gray-300"
-              title="Flexible training"
-            />
+            <BookOpenIcon className="w-10 text-gray-300 hover:scale-50 hover:text-white" />
           }
         />
         <KeyNotesModel
-          title="Flexible training"
-          image={<CreditCardIcon className="w-10 text-gray-300" />}
+          title="Services"
+          destination={"https://serviceexpert.com.ng/services.html"}
+          image={
+            <GlobeEuropeAfricaIcon className="w-10 text-gray-300 hover:scale-50 hover:text-white" />
+          }
         />
       </div>
     </div>
