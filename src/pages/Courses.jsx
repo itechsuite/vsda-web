@@ -80,7 +80,7 @@ const Courses = () => {
       </div>
 
       <div className="py-5">
-        <div className="grid grid-cols-4 gap-5 py-5">
+        <div className="grid md:grid-cols-4 gap-5 py-5 grid-cols-1">
           {courses && courses.length >= 1 ? (
             courses.map((course, index) => {
               return (

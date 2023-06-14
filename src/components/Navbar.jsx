@@ -83,6 +83,8 @@ const Navbar = () => {
         />
       </div>
 
+      {/* Mobile View  */}
+
       <RightModal onClose={() => setMobileMenu(false)} visible={mobile_menu}>
         <p
           className="text-right self-end lowercase   font-light  hover:font-bold cursor-pointer"
@@ -97,6 +99,7 @@ const Navbar = () => {
             menus.map((menu, index) => {
               return (
                 <NavLink
+                  onClick={() => setMobileMenu(false)}
                   to={menu.link}
                   className={({ isActive, isPending }) =>
                     isActive
@@ -110,6 +113,8 @@ const Navbar = () => {
             })}
         </div>
       </RightModal>
+
+      {/* End of Mobile View */}
     </div>
   );
 };
