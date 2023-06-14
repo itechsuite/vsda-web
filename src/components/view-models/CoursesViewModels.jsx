@@ -1,4 +1,5 @@
 import React from "react";
+import { CurrencyFormatter } from "../../helper/CurrencyFormatter";
 
 const CoursesViewModels = ({ payload, onClick }) => {
   const {
@@ -40,7 +41,7 @@ const CoursesViewModels = ({ payload, onClick }) => {
             <p className="text-xs uppercase">{payload.category}</p>
           </div>
 
-          <p>${cost}</p>
+          <p>{CurrencyFormatter(cost)}</p>
         </div>
 
         <div>

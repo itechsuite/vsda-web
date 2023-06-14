@@ -7,6 +7,8 @@ import ClipLoader from "react-spinners/ClipLoader";
 import Modal1 from "../components/Modal/Modal1";
 import TextInput from "../components/Inputs/TextInput";
 import FormInput from "../components/Inputs/FormInput";
+import { LoadingSpinner } from "video-react";
+import PageLoader from "../components/Loaders/PageLoader";
 const Skills = () => {
   const [skill, setSkills] = useState([]);
   const [selected, setSelected] = useState("");
@@ -23,13 +25,15 @@ const Skills = () => {
 
   const fetchSkills = async () => {
     const res = await GET_ALL_SKILLS();
-    console.log(res, "aaa");
+    console.log(res);
+    if (!res.isOk) {
+      setSkills([]);
+      setLoading(false);
+      return;
+    }
 
-    // if (!res || !res.length >= 1) {
-    //   return;
-    // }
-
-    setSkills(res);
+    setLoading(false);
+    setSkills(res.data);
   };
 
   const fetchArtisans = async () => {
@@ -63,12 +67,18 @@ const Skills = () => {
     setValues({ ...values, [id]: value });
   };
 
+  if (loading) {
+    return <PageLoader />;
+  }
+
   return (
     <section
-      className="min-h-[100vh] flex flex-row"
       style={{
-        backgroundImage: `url(${image}) `,
+        backgroundPosition: "center",
+        backgroundImage: `linear-gradient(to bottom, rgba(97,165,250, 0.52), rgba(0,0,0, 0.93)),
+        url('images/background.jpg') ,url(${image})`,
       }}
+      className="flex "
     >
       <div className="  py-4 gap-5   px-5 h-[80vh] items-center justify-center flex  flex-row z-50 ">
         <div className="bg-[#e9e9e9] rounded-md min-w-max px-5 py-10  h-fit sticky z-40 ">
@@ -77,20 +87,30 @@ const Skills = () => {
           </p>
 
           <div className="py-6 col-span-8 flex flex-col gap-3">
-            {skill && skill.length >= 1
-              ? skill.map((data, index) => {
-                  return (
-                    <p
-                      className="cursor-pointer hover:font-bold"
-                      id={data.name}
-                      onClick={handleSkillClick}
-                      key={index}
-                    >
-                      {data.display}
-                    </p>
-                  );
-                })
-              : null}
+            {skill.length >= 1 ? (
+              skill.map((data, index) => {
+                return (
+                  <p
+                    className="cursor-pointer hover:font-bold"
+                    id={data.name}
+                    onClick={handleSkillClick}
+                    key={index}
+                  >
+                    {data.display}
+                  </p>
+                );
+              })
+            ) : (
+              <p> {skill.length}</p>
+            )}
+
+            {loading && skill.length === 0 && (
+              <div className="   h-full flex flex-col justify-center items-center  ">
+                <p className="font-extrabold text-2xl  text-white">
+                  No Artisan for this skill
+                </p>
+              </div>
+            )}
           </div>
 
           <div className="bg-white px-5 py-4 rounded-lg w-full  flex justify-center flex-col gap-3  ">
@@ -101,8 +121,6 @@ const Skills = () => {
             </button>
           </div>
         </div>
-
-        <div className="overflow-hidden  "></div>
       </div>
 
       <div className="bg-transparent min-h-[50vh] px-5 py-10 overflow-hidden w-full  ">
@@ -129,7 +147,7 @@ const Skills = () => {
           </div>
         )}
 
-        {!loading && artisans.length == 0 && (
+        {!loading && artisans.length === 0 && (
           <div className="   h-full flex flex-col justify-center items-center  ">
             <p className="font-extrabold text-2xl">No Artisan for this skill</p>
           </div>

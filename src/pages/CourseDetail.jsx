@@ -1,16 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { GET_COURSE_DETAIL } from "../services/CourseServices";
 import TabInstance from "../components/TabInstance";
 import Testimony1 from "../components/Testimonies/Testimony1";
 import CourseOutline from "../components/CourseOutline";
 import { CurrencyFormatter } from "../helper/constants";
+import { ClockIcon } from "@heroicons/react/24/outline";
+import Modal1 from "../components/Modal/Modal1";
+import PageLoader from "../components/Loaders/PageLoader";
+import FormInput from "../components/Inputs/FormInput";
+import Lottie from "lottie-react";
+import successLottie from "../assets/Lotties/lottie-success.json";
 
 const CourseDetail = () => {
   const { id } = useParams();
   const [course_detail, setCourseDetail] = useState("");
   const [loading, setLoading] = useState(true);
+  // const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [success, setSuccess] = useState(false);
 
+  const [values, setValues] = useState({
+    fullname: "",
+    course_name: "",
+    course_id: course_detail.course_title,
+    email: "",
+    phoneNumber: "",
+  });
+
+  const handleFormOnChange = (e) => {
+    const { value, id } = e.target;
+    setValues({ ...values, [id]: value });
+  };
   let [categories] = useState({
     Outline: {
       name: "Course Outline",
@@ -32,6 +53,7 @@ const CourseDetail = () => {
       return;
     }
     setCourseDetail(res);
+    setValues({ ...values, course_name: res.course_title });
 
     setLoading(false);
     return res;
@@ -42,48 +64,145 @@ const CourseDetail = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <PageLoader />;
   }
 
   if (course_detail === false && loading === false) {
     return <p>invalid request</p>;
   }
+
+  const handleEnrolment = async (e) => {
+    e.preventDefault();
+
+    const { course_id, course_name, email, fullname, phoneNumber } = values;
+    alert(JSON.stringify(values));
+
+    if (
+      course_name === "" ||
+      email === "" ||
+      fullname === "" ||
+      phoneNumber === ""
+    )
+      return;
+
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+      setSuccess(true);
+    }, 4000);
+  };
+
   return (
-    <div className="bg-gray-600 min-h-[90vh] px-3 py-3">
-      <div>bread crumbs</div>
-
+    <section className=" min-h-[100vh] px-5 py-3">
       <div className="flex flex-col gap-4">
-        <h1 className="text-4xl font-extrabold text-white">Course Title</h1>
+        <div
+          className="min-h-[300px] flex justify-center items-center  flex-col"
+          style={{
+            backgroundPosition: "center",
+            backgroundImage: `linear-gradient(to bottom, rgba(97,165,250, 0.52), rgba(0,0,0, 0.93)),
+            url('images/background.jpg') ,url(${course_detail.thumbnail})`,
+          }}
+        >
+          <h1 className="text-4xl font-extrabold  text-white">
+            {course_detail.course_title}
+          </h1>
 
-        <h3 className="text-white">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. In quod, sit
-          dicta eligendi nisi expedita animi quae ipsam perferendis, odit et
-          iusto tenetur aut pariatur laboriosam, nihil dolores blanditiis qui.
-          Natus, ducimus. Totam adipisci veritatis sunt eligendi est ex
-          repellendus, voluptatum provident maxime facilis aliquid architecto id
-          ipsum ab, quasi molestias error consectetur illo sint, quae aperiam
-          voluptatem quisquam officiis!
-        </h3>
+          <div className="text-sm breadcrumbs text-white">
+            <ul>
+              <li>
+                <Link to={"/"}>Home</Link>
+              </li>
+              <li>
+                <Link to={"/courses"}>Courses</Link>
+              </li>
+              <li>{id}</li>
+            </ul>
+          </div>
+        </div>
+        <div className=" flex justify-between bg-blue-400  py-5 px-3">
+          <p className=" font-normal text-white">Duration & Cost </p>
 
-        <button className="border w-2/5 px-3 py-4 rounded-full text-white font-bold">
-          Previewe the course
+          <div className="flex gap-2">
+            <ClockIcon className="w-6 text-white" />
+            <p className=" text-white font-black">{course_detail.duration}</p>
+          </div>
+        </div>
+        <h2 className="">What you'll learn</h2>
+
+        <h3
+          className=""
+          dangerouslySetInnerHTML={{ __html: course_detail.course_details }}
+        ></h3>
+
+        <button
+          onClick={() => setModal(true)}
+          className="border w-2/5 px-3 py-4 rounded-full  text-black hover:text-white hover:bg-blue-400 hover:border-none  font-bold btn bg-transparent"
+        >
+          Enroll this course
         </button>
-
-        <div>
-          <h2>What you'll learn</h2>
-        </div>
       </div>
 
-      <div>
-        <h1>Enroll this course</h1>
+      {/* <Modal1 onClose={() => setEnroll(false)} visible={enroll}>
+        <div>use me</div>
+      </Modal1> */}
 
-        <p>Get this course plus top rated picks</p>
+      <Modal1 visible={modal} onClose={() => setModal(false)}>
+        {success === false && (
+          <div className="">
+            <div>
+              <h1 className="font-extrabold mb-10">Enrolment Form</h1>
+            </div>
+            <form className="flex flex-col  " onSubmit={handleEnrolment}>
+              <FormInput
+                id={"fullname"}
+                placeholder={"Enter your fullname"}
+                value={values.fullname}
+                onChange={handleFormOnChange}
+              />
+              <FormInput
+                id={"course_name"}
+                placeholder={"Course Name"}
+                value={course_detail.course_title}
+                disabled={true}
+                onChange={handleFormOnChange}
+              />
+              <FormInput
+                type={"email"}
+                id={"email"}
+                placeholder={"email"}
+                value={values.email}
+                onChange={handleFormOnChange}
+              />
+              <FormInput
+                id={"phoneNumber"}
+                placeholder={"phoneNumber"}
+                value={values.phoneNumber}
+                onChange={handleFormOnChange}
+              />
 
-        <div>
-          <button>Get Started</button>
-        </div>
-      </div>
-    </div>
+              <button className="mt-5 btn"> Submit</button>
+            </form>
+          </div>
+        )}
+
+        {success && (
+          <div className="flex justify-center items-center flex-col gap-5">
+            <Lottie
+              animationData={require("../assets/Lotties/lottie-success.json")}
+            />
+            <p className="text-2xl font-light">
+              Your reservation is successful
+            </p>
+
+            <button className="btn px-10 py-2 bg-transparent  rounded-full text-gray-500 cursor-pointer hover:bg-blue-400 hover:text-white hover:border-none">
+              {" "}
+              Home
+            </button>
+          </div>
+        )}
+      </Modal1>
+    </section>
   );
 };
 

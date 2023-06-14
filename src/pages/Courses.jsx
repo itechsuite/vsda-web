@@ -5,8 +5,11 @@ import {
   GET_ALL_COURSE_BY_CATEGORY,
   GET_ALL_COURSE_CATEGORY,
 } from "../services/CourseServices";
+import CoursesViewModels from "../components/view-models/CoursesViewModels";
+import { useNavigate } from "react-router-dom";
 
 const Courses = () => {
+  const navigate = useNavigate();
   const [courses, setCourses] = useState([]);
   const [category, setCategory] = useState([]);
   const [selected, setSelected] = useState([]);
@@ -23,8 +26,15 @@ const Courses = () => {
     setCategory(res);
     console.log(res);
   };
+
+  const fetchAllCourses = async () => {
+    const res = await GET_ALL_COURSES();
+    setCourses(res);
+    console.log(res);
+  };
   const fetchCourseByCategory = async (category) => {
     const res = await GET_ALL_COURSE_BY_CATEGORY(category);
+    setCourses(res);
     console.log(res);
   };
 
@@ -33,8 +43,8 @@ const Courses = () => {
   }, []);
 
   useEffect(() => {
-    fetchCourseByCategory(selected);
-  }, [selected]);
+    fetchAllCourses();
+  }, []);
 
   return (
     <section className="py-4 min-h-[90vh] px-5 ">
@@ -56,7 +66,7 @@ const Courses = () => {
                 return (
                   <p
                     className="cursor-pointer btn"
-                    onClick={() => setSelected(cat.title)}
+                    onClick={() => fetchCourseByCategory(cat.title)}
                   >
                     {cat.title}
                   </p>
@@ -66,6 +76,24 @@ const Courses = () => {
               <p> no category found</p>
             )}
           </div>
+        </div>
+      </div>
+
+      <div className="py-5">
+        <div className="grid grid-cols-4 gap-5 py-5">
+          {courses && courses.length >= 1 ? (
+            courses.map((course, index) => {
+              return (
+                <CoursesViewModels
+                  key={index}
+                  payload={course}
+                  onClick={() => navigate(`/course/detail/${course.id}`)}
+                />
+              );
+            })
+          ) : (
+            <p> no course found</p>
+          )}
         </div>
       </div>
     </section>
