@@ -91,7 +91,11 @@ const Skills = () => {
               skill.map((data, index) => {
                 return (
                   <p
-                    className="cursor-pointer hover:font-bold"
+                    className={
+                      selected === data.name
+                        ? "font-extrabold"
+                        : "cursor-pointer hover:font-bold"
+                    }
                     id={data.name}
                     onClick={handleSkillClick}
                     key={index}
