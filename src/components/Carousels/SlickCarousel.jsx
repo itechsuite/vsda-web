@@ -49,7 +49,7 @@ const SlickCarousel = () => {
 
             <Link
               to={"https://serviceexpert.com.ng/services.html"}
-              className="btn normal  bg-white text-[#3091E9] border-none font-bold  rounded-sm"
+              className="btn normal  bg-white bg-[#dc4124]  border-none font-bold  rounded-sm"
             >
               Learn More
             </Link>
@@ -72,10 +72,7 @@ const SlickCarousel = () => {
               Find a technician and service personnel trained and certified by
               us
             </p>
-            <Link
-              to={"/skills"}
-              className="btn normal  hover:bg-gray-100 hover:bg-opacity-20  text-white border-none font-bold w-2/4 rounded-sm bg-transparent hover:text-white hover:font-bold font-normal"
-            >
+            <Link to={"/skills"} className="btn normal bg-[#dc4124] rounded-md">
               Explore
             </Link>
           </div>
