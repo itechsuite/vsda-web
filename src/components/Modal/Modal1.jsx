@@ -1,3 +1,4 @@
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 
 const Modal1 = ({ visible, children, onClose, heading }) => {
@@ -18,16 +19,19 @@ const Modal1 = ({ visible, children, onClose, heading }) => {
       }
     >
       <div
-        className="min-h-[300px] w-3/5 rounded bg-white px-10 py-10  "
+        className="min-h-[300px] w-3/5 rounded bg-white px-10 py-10   "
         onDoubleClick={() => onClose}
       >
-        {heading && (
-          <div onClick={handleClose}>
-            <i id="master" onClick={handleClose}>
-              close btn
-            </i>
-          </div>
-        )}
+        <div
+          onClick={handleClose}
+          className=" w-full  text-right px-3 flex flex-row justify-end"
+        >
+          <XMarkIcon
+            id="master"
+            className="w-6 text-gray-400 hover:text-red-600"
+            onClick={handleClose}
+          />
+        </div>
         {children}
       </div>
     </div>

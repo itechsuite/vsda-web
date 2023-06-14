@@ -9,6 +9,7 @@ const FormInput = ({
   id,
   placeholder,
   className,
+  disabled,
 }) => {
   return (
     <div
@@ -19,6 +20,7 @@ const FormInput = ({
     >
       {/* <label htmlFor="">{title || "labeel"}</label> */}
       <input
+        disabled={disabled}
         className={
           " py-3 rounded-sm  border-b-2 outline-none bg-transparent w-full"
         }
