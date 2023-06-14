@@ -11,7 +11,7 @@ import Logo from "./Logo";
 const Navbar = () => {
   const menus = [
     {
-      name: "Homepage",
+      name: "Home",
       link: "/",
     },
     {

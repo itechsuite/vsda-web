@@ -116,7 +116,7 @@ const CourseDetail = () => {
               <li>
                 <Link to={"/courses"}>Courses</Link>
               </li>
-              <li>{id}</li>
+              <li>{course_detail.course_title}</li>
             </ul>
           </div>
         </div>
@@ -185,16 +185,22 @@ const CourseDetail = () => {
         {success && (
           <div className="flex justify-center items-center flex-col gap-5">
             <Lottie
+              className="w-32"
               animationData={require("../assets/Lotties/lottie-success.json")}
             />
-            <p className="text-2xl font-light">
+            <p className="text-2xl font-semibold">
               Your reservation is successful
             </p>
 
-            <button className="btn px-10 py-2 bg-transparent  rounded-full text-gray-500 cursor-pointer hover:bg-blue-400 hover:text-white hover:border-none">
+            <p className="font-light">we will get in touch with you shortly.</p>
+
+            <Link
+              to={"/"}
+              className="btn px-10 py-2 bg-transparent  rounded-full text-gray-500 cursor-pointer hover:bg-blue-400 hover:text-white hover:border-none"
+            >
               {" "}
               Home
-            </button>
+            </Link>
           </div>
         )}
       </Modal1>

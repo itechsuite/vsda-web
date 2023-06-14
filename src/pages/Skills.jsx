@@ -9,12 +9,20 @@ import TextInput from "../components/Inputs/TextInput";
 import FormInput from "../components/Inputs/FormInput";
 import { LoadingSpinner } from "video-react";
 import PageLoader from "../components/Loaders/PageLoader";
+import RegisterNow from "../components/CTAs/RegisterNow";
+
+import Lottie from "lottie-react";
+import { Link } from "react-router-dom";
 const Skills = () => {
   const [skill, setSkills] = useState([]);
   const [selected, setSelected] = useState("");
   const [artisans, setArtisans] = useState([]);
   const [modal, setModal] = useState(false);
+  const [enrolModal, setEnrolModal] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const [success, setSuccess] = useState(false);
+
   const [values, setValues] = useState({
     fullname: "",
     address: "",
@@ -23,6 +31,35 @@ const Skills = () => {
     extra: "",
   });
 
+  const [enrollment, setEnrollment] = useState({
+    course_id: "",
+    course_name: "",
+    email: "",
+    fullname: "",
+    phoneNumber: "",
+  });
+
+  const handleEnrolment = async (e) => {
+    e.preventDefault();
+
+    const { course_id, course_name, email, fullname, phoneNumber } = enrollment;
+    // alert(JSON.stringify(values));
+
+    if (
+      course_name === "" ||
+      email === "" ||
+      fullname === "" ||
+      phoneNumber === ""
+    )
+      return;
+
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+      setSuccess(true);
+    }, 4000);
+  };
   const fetchSkills = async () => {
     const res = await GET_ALL_SKILLS();
     console.log(res);
@@ -72,134 +109,196 @@ const Skills = () => {
   }
 
   return (
-    <section
-      style={{
-        backgroundPosition: "center",
-        backgroundImage: `linear-gradient(to bottom, rgba(97,165,250, 0.52), rgba(0,0,0, 0.93)),
+    <div className="px-5 py-5">
+      <section
+        style={{
+          backgroundPosition: "center",
+          backgroundImage: `linear-gradient(to bottom, rgba(97,165,250, 0.52), rgba(0,0,0, 0.93)),
         url('images/background.jpg') ,url(${image})`,
-      }}
-      className="flex flex-col md:flex-row "
-    >
-      <div className="  py-4 gap-5 px-5 h-[80vh] items-center justify-center flex flex-row z-50 ">
-        <div className="bg-[#e9e9e9] rounded-md min-w-max px-5 py-10  h-fit sticky z-40 ">
-          <p className="text-2xl font-bold after:h-1  after:bg-[#989292]  after:absolute relative  after:w-2/3 after:bottom-0 after:left-1 after:content-[''] ">
-            Find a Skilled <span className="text-[#3091E9]"> Personel </span>
-          </p>
+        }}
+        className="flex flex-col md:flex-row "
+      >
+        <div className="  py-4 gap-5 px-5 h-[90vh] items-center justify-center flex flex-row z-50   md:flex ">
+          <div className="bg-[#e9e9e9] rounded-md min-w-max px-5 py-10  h-fit sticky z-40 ">
+            <p className="text-2xl font-bold after:h-1  after:bg-[#989292]  after:absolute relative  after:w-2/3 after:bottom-0 after:left-1 after:content-[''] ">
+              Find a Skilled <span className="text-[#3091E9]"> Personel </span>
+            </p>
 
-          <div className="py-6 col-span-8 flex flex-col gap-3">
-            {skill.length >= 1 ? (
-              skill.map((data, index) => {
-                return (
-                  <p
-                    className={
-                      selected === data.name
-                        ? "font-extrabold"
-                        : "cursor-pointer hover:font-bold"
-                    }
-                    id={data.name}
-                    onClick={handleSkillClick}
-                    key={index}
-                  >
-                    {data.display}
+            {/* Skills market place application */}
+
+            <div className="py-6 col-span-8 flex flex-col gap-3">
+              {skill.length >= 1 ? (
+                skill.map((data, index) => {
+                  return (
+                    <p
+                      className={
+                        selected === data.name
+                          ? "font-extrabold"
+                          : "cursor-pointer hover:font-bold"
+                      }
+                      id={data.name}
+                      onClick={handleSkillClick}
+                      key={index}
+                    >
+                      {data.display}
+                    </p>
+                  );
+                })
+              ) : (
+                <p> {skill.length}</p>
+              )}
+
+              {loading && skill.length === 0 && (
+                <div className="   h-full flex flex-col justify-center items-center  ">
+                  <p className="font-extrabold text-2xl  text-white">
+                    No Artisan for this skill
                   </p>
-                );
-              })
-            ) : (
-              <p> {skill.length}</p>
-            )}
-
-            {loading && skill.length === 0 && (
-              <div className="   h-full flex flex-col justify-center items-center  ">
-                <p className="font-extrabold text-2xl  text-white">
-                  No Artisan for this skill
-                </p>
-              </div>
-            )}
-          </div>
-
-          <div className="bg-white px-5 py-4 rounded-lg w-full  flex justify-center flex-col gap-3  ">
-            <p>Get trained, and join our team</p>
-
-            <button className="bg-[#3091E9] text-white px-4 rounded-full py-2 self-center ">
-              Register
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-transparent min-h-[50vh] px-5 py-10 overflow-hidden w-full  ">
-        {loading && (
-          <div className="flex justify-center items-center  w-full h-full ">
-            <div className="bg-white px-5 py-5 rounded-md">
-              <ClipLoader />
+                </div>
+              )}
             </div>
           </div>
-        )}
-
-        {!loading && (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4">
-            {artisans &&
-              artisans.length >= 1 &&
-              artisans.map((artisan, index) => {
-                return (
-                  <ArtisanCard
-                    payload={artisan}
-                    onClick={() => setModal(true)}
-                  />
-                );
-              })}
-          </div>
-        )}
-
-        {!loading && artisans.length === 0 && (
-          <div className="   h-full flex flex-col justify-center items-center  ">
-            <p className="font-extrabold text-2xl">No Artisan for this skill</p>
-          </div>
-        )}
-      </div>
-
-      <Modal1 visible={modal} onClose={() => setModal(false)}>
-        <div className="">
-          <div>
-            <h1 className="font-extrabold mb-10">Request Form</h1>
-          </div>
-          <form className="flex flex-col  ">
-            <FormInput
-              id={"fullname"}
-              placeholder={"Fullname"}
-              value={values.fullname}
-              onChange={handleFormOnChange}
-            />
-            <FormInput
-              id={"address"}
-              placeholder={"address"}
-              value={values.address}
-              onChange={handleFormOnChange}
-            />
-            <FormInput
-              id={"email"}
-              placeholder={"email"}
-              value={values.email}
-              onChange={handleFormOnChange}
-            />
-            <FormInput
-              id={"phoneNumber"}
-              placeholder={"phoneNumber"}
-              value={values.phoneNumber}
-              onChange={handleFormOnChange}
-            />
-            <FormInput
-              id={"extra"}
-              placeholder={"Additional Info"}
-              value={values.extra}
-              onChange={handleFormOnChange}
-            />
-
-            <button className="mt-5 btn"> Submit</button>
-          </form>
         </div>
+
+        <div className="bg-transparent min-h-[50vh] px-5 py-10 overflow-hidden w-full  ">
+          {loading && (
+            <div className="flex justify-center items-center  w-full h-full ">
+              <div className="bg-white px-5 py-5 rounded-md">
+                <ClipLoader />
+              </div>
+            </div>
+          )}
+
+          {!loading && (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4">
+              {artisans &&
+                artisans.length >= 1 &&
+                artisans.map((artisan, index) => {
+                  return (
+                    <ArtisanCard
+                      payload={artisan}
+                      onClick={() => setModal(true)}
+                    />
+                  );
+                })}
+            </div>
+          )}
+
+          {!loading && artisans.length === 0 && (
+            <div className="   h-full flex flex-col justify-center items-center  ">
+              <p className="font-extrabold text-2xl">
+                No Artisan for this skill
+              </p>
+            </div>
+          )}
+        </div>
+
+        <Modal1 visible={modal} onClose={() => setModal(false)}>
+          <div className="">
+            <div>
+              <h1 className="font-extrabold mb-10">Request Form</h1>
+            </div>
+            <form className="flex flex-col  ">
+              <FormInput
+                id={"fullname"}
+                placeholder={"Fullname"}
+                value={values.fullname}
+                onChange={handleFormOnChange}
+              />
+              <FormInput
+                id={"address"}
+                placeholder={"address"}
+                value={values.address}
+                onChange={handleFormOnChange}
+              />
+              <FormInput
+                id={"email"}
+                placeholder={"email"}
+                value={values.email}
+                onChange={handleFormOnChange}
+              />
+              <FormInput
+                id={"phoneNumber"}
+                placeholder={"phoneNumber"}
+                value={values.phoneNumber}
+                onChange={handleFormOnChange}
+              />
+              <FormInput
+                id={"extra"}
+                placeholder={"Additional Info"}
+                value={values.extra}
+                onChange={handleFormOnChange}
+              />
+
+              <button className="mt-5 btn"> Submit</button>
+            </form>
+          </div>
+        </Modal1>
+      </section>
+
+      <RegisterNow onClick={() => setEnrolModal()} />
+
+      <Modal1 visible={enrolModal} onClose={() => setEnrolModal(false)}>
+        {success === false && (
+          <div className="">
+            <div>
+              <h1 className="font-extrabold mb-10">Enrolment Form</h1>
+            </div>
+            <form className="flex flex-col  " onSubmit={handleEnrolment}>
+              <FormInput
+                id={"fullname"}
+                placeholder={"Enter your fullname"}
+                value={enrollment.fullname}
+                onChange={handleFormOnChange}
+              />
+              <FormInput
+                id={"course_name"}
+                placeholder={"Course Name"}
+                value={enrollment.course_name}
+                disabled={true}
+                onChange={handleFormOnChange}
+              />
+              <FormInput
+                type={"email"}
+                id={"email"}
+                placeholder={"email"}
+                value={enrollment.email}
+                onChange={handleFormOnChange}
+              />
+              <FormInput
+                id={"phoneNumber"}
+                placeholder={"phoneNumber"}
+                value={enrollment.phoneNumber}
+                onChange={handleFormOnChange}
+              />
+
+              <button className="mt-5 btn"> Submit</button>
+            </form>
+          </div>
+        )}
+
+        {success && (
+          <div className="flex justify-center items-center flex-col gap-5">
+            <Lottie
+              className="w-32"
+              animationData={require("../assets/Lotties/lottie-success.json")}
+            />
+            <p className="text-2xl font-semibold">
+              Your reservation is successful
+            </p>
+
+            <p className="font-light">we will get in touch with you shortly.</p>
+
+            <Link
+              to={"/"}
+              className="btn px-10 py-2 bg-transparent  rounded-full text-gray-500 cursor-pointer hover:bg-blue-400 hover:text-white hover:border-none"
+            >
+              {" "}
+              Home
+            </Link>
+          </div>
+        )}
       </Modal1>
-    </section>
+    </div>
   );
 };
 

@@ -51,13 +51,13 @@ const Courses = () => {
       <div
         className="min-h-[60vh] bg-right flex flex-col justify-evenly items-center gap-5"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(97,165,250, 0.92), rgba(0,0,0, 0.93)),
+          backgroundImage: `linear-gradient(to bottom, rgba(97,165,250, 0.42), rgba(0,0,0, 0.63)),
           url('images/background.jpg') ,url(${require("../assets/images/courses/learning.jpeg")})`,
         }}
       >
         <p className="font-extrabold text-white text-6xl">Courses</p>
 
-        <div className="items-start text-white font-semibold w-full px-5 ">
+        {/* <div className="items-start text-white font-semibold w-full px-5 ">
           <p className="font-bold">Courses Category</p>
 
           <div className="grid md:grid-cols-4 grid-cols-2 gap-5 py-5">
@@ -83,7 +83,7 @@ const Courses = () => {
               <p> no category found</p>
             )}
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="py-5">

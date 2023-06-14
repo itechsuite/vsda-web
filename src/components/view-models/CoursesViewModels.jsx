@@ -46,7 +46,7 @@ const CoursesViewModels = ({ payload, onClick }) => {
 
         <div>
           <p className="uppercase  font-bold">{payload.course_title}</p>
-          <p>{details}</p>
+          <p onClick={onClick}>{details}</p>
         </div>
       </div>
 
@@ -55,8 +55,7 @@ const CoursesViewModels = ({ payload, onClick }) => {
           onClick={onClick}
           className="bg-blue-600 w-3/4 px-10 py-3 text-white rounded-md "
         >
-          {" "}
-          enroll
+          Enroll
         </button>
       </div>
     </div>

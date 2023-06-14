@@ -10,8 +10,23 @@ import {
 } from "@heroicons/react/24/outline";
 const KeyNotes = () => {
   return (
-    <div className="px-3 py-5 bg-white flex  flex-col justify-center items-center ">
-      <div className="flex md:flex-initial md:flex-row gap-0   flex-col  w-full md:justify-center ">
+    <div
+      className="px-3 py-5 bg-white flex  flex-col justify-center items-center gap-3 min-h-[50vh]"
+      style={{
+        backgroundPosition: "center",
+        backgroundImage: `linear-gradient(to bottom, rgba(60,63,65, 0.92), rgba(0,0,0, 0.93)),
+    url('images/background.jpg') ,url(${require("../assets/images/lady.jpg")})`,
+      }}
+    >
+      <div className="text-center text-white flex flex-col gap-4">
+        <p className="font-bold text-3xl">Technical Resources </p>
+        <p>
+          Plug into our world endless technical possibilities, from
+          best-in-class equipment, well trained/certified personnel and bespoke
+          courses to sharpen your existing skills
+        </p>
+      </div>
+      <div className="flex  gap-5">
         <KeyNotesModel
           title="Skills Market Place"
           destination={"/skills"}
@@ -35,6 +50,7 @@ const KeyNotes = () => {
         />
         <KeyNotesModel
           title="Services"
+          target={"_blank"}
           destination={"https://serviceexpert.com.ng/services.html"}
           image={
             <GlobeEuropeAfricaIcon className="w-10 text-gray-300 hover:scale-50 hover:text-white" />

@@ -3,10 +3,10 @@ import FormInput from "./Inputs/FormInput";
 
 const GetInTouch = () => {
   return (
-    <section className="min-h-[50vh] py-5 px-5 ">
-      <div className="flex  gap-2">
-        <p className="bg-blue-400">&nbsp;</p>
-        <p className="text-3xl font-black text-gray-500">Get In Touch</p>
+    <section className="min-h-[50vh] py-5 px-5  py-4  ">
+      <div className="flex  gap-2 my-20">
+        <p className="bg-[#e41315]">&nbsp;</p>
+        <p className="text-3xl font-black text-[#e41315]">Get In Touch</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 w-auto ">
         <div className="py-5 flex flex-col gap-4">
@@ -25,6 +25,7 @@ const GetInTouch = () => {
         </div>
 
         <div>
+          <p className="my-10">&nbsp;</p>
           <form action="" className="w-full flex  flex-col   gap-5 px-3">
             <FormInput
               className="  "
@@ -59,8 +60,8 @@ const GetInTouch = () => {
               placeholder="Enter message"
             />
 
-            <button className="w-full bg-black px-3 py-3 text-white font-bold rounded-sm">
-              Send
+            <button className=" self-center bg-[#e41315]  py-3 text-white font-bold rounded-full w-2/6">
+              Submit
             </button>
           </form>
         </div>

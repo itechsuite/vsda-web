@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const KeyNotesModel = ({ title, image, destination }) => {
+const KeyNotesModel = ({ title, image, destination, target }) => {
   return (
     <Link
       to={destination ? destination : "#"}
-      className=" border flex flex-col px-10 py-10 justify-center items-center min-w-[200px] cursor-pointer hover:bg-blue-300 hover:text-white gap-3"
+      target={target}
+      className=" border flex flex-col px-10 py-10 justify-center items-center min-w-[200px] cursor-pointer  hover:text-white gap-3"
     >
       {image}
       <p className="uppercase  text-gray-500 font-light text-sm hover:font-bold ">
