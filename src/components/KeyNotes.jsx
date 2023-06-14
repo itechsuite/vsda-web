@@ -18,15 +18,15 @@ const KeyNotes = () => {
     url('images/background.jpg') ,url(${require("../assets/images/lady.jpg")})`,
       }}
     >
-      <div className="text-center text-white flex flex-col gap-4">
+      <div className=" text-white flex flex-col gap-4 items-center md:w-2/4 ">
         <p className="font-bold text-3xl">Technical Resources </p>
-        <p>
+        <p className=" text-white">
           Plug into our world endless technical possibilities, from
           best-in-class equipment, well trained/certified personnel and bespoke
           courses to sharpen your existing skills
         </p>
       </div>
-      <div className="flex  gap-5">
+      <div className="grid md:grid-cols-4 grid-cols-2">
         <KeyNotesModel
           title="Skills Market Place"
           destination={"/skills"}

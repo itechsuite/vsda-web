@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Player } from "video-react";
 
 const IntroVideo = () => {
@@ -11,7 +12,9 @@ const IntroVideo = () => {
           place you ahead of your contemporaries
         </p>
 
-        <button className="btn bg-[#ed4f4f]"> Register Now</button>
+        <Link to={"/courses"} className="btn  w-2/5 bg-[#ed4f4f] rounded-full ">
+          Register Now
+        </Link>
       </div>
 
       <video controls>

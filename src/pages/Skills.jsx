@@ -109,7 +109,7 @@ const Skills = () => {
   }
 
   return (
-    <div className="px-5 py-5">
+    <div className="py-5">
       <section
         style={{
           backgroundPosition: "center",

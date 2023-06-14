@@ -14,7 +14,7 @@ import GetInTouch from "../components/GetInTouch";
 
 const Home = () => {
   return (
-    <div>
+    <div className="">
       {/* <Banner link={require("../assets/images/home/electrician.jpg")} /> */}
 
       <SlickCarousel />
@@ -27,7 +27,7 @@ const Home = () => {
 
       {/* <Banner link={require("../assets/images/home/electrician.jpg")} /> */}
 
-      <FeaturedCourses />
+      {/* <FeaturedCourses /> */}
 
       <GetInTouch />
       {/* <Partners /> */}

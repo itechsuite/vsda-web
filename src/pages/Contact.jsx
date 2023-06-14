@@ -5,7 +5,7 @@ import GetInTouch from "../components/GetInTouch";
 
 const Contact = () => {
   return (
-    <section className="min-h-[80vh]  px-10 py-10">
+    <section className="min-h-[80vh]  px-10 py-10 ">
       {/* <Banner /> */}
 
       <GetInTouch />
