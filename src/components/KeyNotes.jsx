@@ -10,8 +10,8 @@ import {
 } from "@heroicons/react/24/outline";
 const KeyNotes = () => {
   return (
-    <div className="px-3 py-5 bg-white flex  flex-col justify-center items-center">
-      <div className="flex md:flex-initial md:flex-row gap-0   flex-col">
+    <div className="px-3 py-5 bg-white flex  flex-col justify-center items-center ">
+      <div className="flex md:flex-initial md:flex-row gap-0   flex-col  w-full md:justify-center ">
         <KeyNotesModel
           title="Skills Market Place"
           destination={"/skills"}

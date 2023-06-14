@@ -12,14 +12,14 @@ const GetInTouch = () => {
         <div className="py-5 flex flex-col gap-4">
           <div>
             <p className="font-bold text-blue-400">Mail</p>
-            <a className="text-gray-400" href="mailto:support@vitalskills.com">
-              support@vitalskills.com
+            <a className="text-gray-400" href="mailto:Info@vitalskillsda.com">
+              Info@vitalskillsda.com
             </a>
           </div>
           <div>
             <p className="font-bold text-blue-400">Phone </p>
-            <a className="text-gray-400" href="tel:08172020202">
-              08172020202
+            <a className="text-gray-400" href="tel:+234(0)8026393322">
+              +234(0)8026393322
             </a>
           </div>
         </div>
