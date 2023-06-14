@@ -4,7 +4,10 @@ import FormInput from "./Inputs/FormInput";
 const GetInTouch = () => {
   return (
     <section className="min-h-[50vh] py-5 px-5 ">
-      <p className="text-3xl font-bold">GetInTouch</p>
+      <div className="flex  gap-2">
+        <p className="bg-blue-400">&nbsp;</p>
+        <p className="text-3xl font-black text-gray-500">Get In Touch</p>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 w-auto ">
         <div className="py-5 flex flex-col gap-4">
           <div>
@@ -22,19 +25,16 @@ const GetInTouch = () => {
         </div>
 
         <div>
-          <form
-            action=""
-            className="w-full flex md:flex-wrap   flex-col  gap-5"
-          >
+          <form action="" className="w-full flex  flex-col   gap-5 px-3">
             <FormInput
-              className=" md:max-w-[40%]    "
+              className="  "
               title={"Name"}
-              placeholder={"enter name"}
+              placeholder={"Full Name"}
               id={"name"}
               type={"text"}
             />
             <FormInput
-              className=" md:max-w-[40%] "
+              className="  "
               title={"Email Address"}
               placeholder={"a@1234.com"}
               id={"email"}
@@ -46,15 +46,20 @@ const GetInTouch = () => {
               id={"phonenumber"}
               type={"text"}
             />
-            <FormInput
+            {/* <FormInput
               title={"Message"}
               placeholder={"enter message"}
               id={"name"}
               type={"text"}
+            /> */}
+
+            <textarea
+              className="outline-none w-full min-h-min"
+              id="message"
+              placeholder="Enter message"
             />
 
-            <button className="w-full bg-black px-3 py-3 text-white font-bold">
-              {" "}
+            <button className="w-full bg-black px-3 py-3 text-white font-bold rounded-sm">
               Send
             </button>
           </form>
