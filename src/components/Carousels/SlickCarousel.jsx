@@ -9,7 +9,7 @@ const SlickCarousel = () => {
       <Carousel autoPlay infiniteLoop interval={3000}>
         {/*  bg-[url('/src/assets/images/automation.png')] */}
         <section
-          className="min-h-[90vh] relative  bg-cover flex flex-col gap-3   items-center justify-center   "
+          className="min-h-[70vh] md:min-h-[100vh] relative  bg-cover flex flex-col gap-3   items-center justify-center   "
           style={{
             backgroundPosition: "center",
             backgroundImage: `linear-gradient(to bottom, rgba(97,165,250, 0.52), rgba(0,0,0, 0.93)),
