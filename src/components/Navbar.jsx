@@ -52,13 +52,25 @@ const Navbar = () => {
   return (
     <div
       className={
-        fixed ? "sticky top-0 bg-white py-5  z-50" : " bg-transparent py-5 z-50"
+        fixed
+          ? "sticky top-0 bg-white   z-50"
+          : " bg-transparent  z-50  transition-all ease-in-out"
       }
     >
-      <div className="flex gap-4  pt-10 font  flex flex-row w-full   items-center justify-between pl-16  pr-5">
+      <div className="bg-[#e71211]  py-3 flex justify-between  items-center text-white pr-3">
         <Logo />
 
-        <div className="  gap-4 px-24 hidden md:flex  md:text-xs lg:flex sm:hidden">
+        <div className="flex flex-row gap-3 items-center ">
+          <p>For Course Advice and bookings call :</p>
+          <a href="tel:2348026393322">+234(0)8026393322</a>
+
+          <button className="btn  rounded-full bg-white text-black px-10 border-none  ">
+            Register
+          </button>
+        </div>
+      </div>
+      <div className="flex gap-4  pt-10  flex-row w-full   items-end justify-end pl-16  pr-5">
+        <div className="  gap-4 px-24 hidden md:flex  lg:flex sm:hidden">
           {menus &&
             menus.length > 1 &&
             menus.map((menu, index) => {

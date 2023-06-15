@@ -22,6 +22,13 @@ const GetInTouch = () => {
               +234(0)8026393322
             </a>
           </div>
+          <div>
+            <p className="font-bold text-blue-400">Office Address </p>
+            <p className="text-gray-400">
+              18 Trans Woji Road, Opposite NNPC Filling Station, Rivers State,
+              Port Harcourt
+            </p>
+          </div>
         </div>
 
         <div>

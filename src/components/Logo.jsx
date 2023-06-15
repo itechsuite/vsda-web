@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 
 const Logo = () => {
   return (
-    <div>
+    <div className="px-3">
       {" "}
       <Link to={"/"} className="text-3xl font-extrabold cursor-pointer ">
-        VSDA
+        <img
+          src={require("../assets/images/logo/vsda-logo.png")}
+          alt="logo"
+          className="w-2/5"
+        />
       </Link>
     </div>
   );
