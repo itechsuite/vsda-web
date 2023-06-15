@@ -44,13 +44,13 @@ const GetInTouch = () => {
             <FormInput
               className="  "
               title={"Email Address"}
-              placeholder={"a@1234.com"}
+              placeholder={"Email Address"}
               id={"email"}
               type={"email"}
             />
             <FormInput
               title={"Phone Number"}
-              placeholder={"080XXXXXXX"}
+              placeholder={"Phone Number"}
               id={"phonenumber"}
               type={"text"}
             />
