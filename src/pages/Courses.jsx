@@ -49,7 +49,7 @@ const Courses = () => {
   return (
     <section className="py-4 min-h-[90vh] px-5 ">
       <div
-        className="min-h-[60vh] bg-right flex flex-col justify-evenly items-center gap-5"
+        className="min-h-[60vh] bg-right flex flex-col justify-evenly items-center gap-5 "
         style={{
           backgroundImage: `linear-gradient(to bottom, rgba(97,165,250, 0.42), rgba(0,0,0, 0.63)),
           url('images/background.jpg') ,url(${require("../assets/images/courses/learning.jpeg")})`,
@@ -87,7 +87,7 @@ const Courses = () => {
       </div>
 
       <div className="py-5">
-        <div className="grid md:grid-cols-4 gap-5 py-5 grid-cols-1">
+        <div className="grid md:grid-cols-3 lg:grid-cols-4  gap-5 py-5 grid-cols-1">
           {courses && courses.length >= 1 ? (
             courses.map((course, index) => {
               return (
