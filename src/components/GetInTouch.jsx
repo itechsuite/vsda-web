@@ -54,12 +54,6 @@ const GetInTouch = () => {
               id={"phonenumber"}
               type={"text"}
             />
-            {/* <FormInput
-              title={"Message"}
-              placeholder={"enter message"}
-              id={"name"}
-              type={"text"}
-            /> */}
 
             <textarea
               className="outline-none w-full min-h-min"
