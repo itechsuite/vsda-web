@@ -8,7 +8,7 @@ const AboutUs = () => {
         <p className="font-extrabold text-2xl"> Putting You First</p>
         <p>
           Vital Skills Development Academy is Built on The Knowledge And
-          Expertise of A Team oOf Professionals With Over 15 Years of Combined
+          Expertise of A Team Of Professionals With Over 15 Years of Combined
           Experience. We are committed to making clients journey in the
           technical industry safe, profitable and reaching full potentials.
           Experienced in Industrial Electrics, Automation Etc on aGlobal Scale.

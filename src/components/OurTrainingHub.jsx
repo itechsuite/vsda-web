@@ -6,8 +6,8 @@ const OurTrainingHub = () => {
   const [width, setWidth] = useState(window.innerWidth);
   var settings = {
     dots: true,
-    infinite: true,
-    autoplay: true,
+    // infinite: true,
+    // autoplay: true,
     speed: 300,
     // slidesToShow: 4,
     slidesToShow: width <= 800 ? 2 : 5,
