@@ -6,7 +6,7 @@ import HeadOfficeMap from "../components/HeadOfficeMap";
 
 const Contact = () => {
   return (
-    <section className="min-h-[80vh]  px-10 py-10 ">
+    <section className="min-h-[80vh]  px-5 py-10 ">
       {/* <Banner /> */}
 
       <HeadOfficeMap />

@@ -73,7 +73,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="flex gap-4  pt-10  flex-row w-full   items-end justify-end pl-16  pr-5">
-        <div className="  gap-4 px-24 hidden md:flex  lg:flex sm:hidden">
+        <div className="  gap-4 px-24 hidden md:flex  lg:flex sm:hidden py-1">
           {menus &&
             menus.length > 1 &&
             menus.map((menu, index) => {
@@ -82,7 +82,7 @@ const Navbar = () => {
                   to={menu.link}
                   className={({ isActive, isPending }) =>
                     isActive
-                      ? "after:h-1  after:bg-blue-400  after:absolute relative  after:w-full after:-bottom-4 after:left-0  after:content-['']"
+                      ? "after:h-1  after:bg-blue-400  after:absolute relative  after:w-full after:-bottom-1 after:left-0  after:content-['']"
                       : "font-light"
                   }
                 >

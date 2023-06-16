@@ -6,7 +6,14 @@ import { Link } from "react-router-dom";
 const SlickCarousel = () => {
   return (
     <div>
-      <Carousel autoPlay infiniteLoop interval={3000}>
+      <Carousel
+        autoPlay
+        infiniteLoop
+        interval={3000}
+        showArrows={true}
+        showStatus={false}
+        useKeyboardArrows={true}
+      >
         {/*  bg-[url('/src/assets/images/automation.png')] */}
         <section
           className="min-h-[70vh] md:min-h-[100vh] relative  bg-cover flex flex-col gap-3   items-center justify-center   "
