@@ -8,7 +8,7 @@ const CoursesListModel = ({ payload }) => {
   const navigate = useNavigate();
   return (
     <div
-      className={` rounded-md bg- min-h-[200px] flex flex-col gap-5 px-3 py-5 cursor-pointer mx-5 bg-no-repeat  hover:text-black `}
+      className={` rounded-md  min-h-[200px] flex flex-col gap-5 px-3 py-5 cursor-pointer mx-5 bg-no-repeat  hover:text-black `}
       // style={{
       //   background: `linear-gradient(to top, rgba(0,0,0,0.5), #ffffff), `,
       //   //   background: "rgba(0, 0, 0, 0.3)",

@@ -9,11 +9,17 @@ export const CustomResponse = ({ data, message, error, code }) => {
       error,
     };
 
-  if (error.isAxiosError) {
+  if (error.name === "AxiosError") {
     return {
       isOk: false,
       message,
       error,
     };
   }
+
+  return {
+    isOk: false,
+    data: {},
+    message,
+  };
 };
