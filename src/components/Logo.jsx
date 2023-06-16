@@ -9,7 +9,7 @@ const Logo = () => {
         <img
           src={require("../assets/images/logo/vsda-logo.png")}
           alt="logo"
-          className="w-2/5"
+          className="md:w-2/5 w-3/4"
         />
       </Link>
     </div>

@@ -61,12 +61,16 @@ const Navbar = () => {
         <Logo />
 
         <div className="flex flex-row gap-3 items-center ">
-          <p>For Course Advice and bookings call :</p>
-          <a href="tel:2348026393322">+234(0)8026393322</a>
+          <p className="hidden md:flex">
+            For Course Advice and bookings call :
+          </p>
+          <a href="tel:2348026393322 " className="md:text-sm  text-xs">
+            +234(0)8026393322
+          </a>
 
           <Link
             to={"/contact"}
-            className="btn  rounded-full bg-white text-black px-10 border-none  "
+            className="btn  md:rounded-full md:px-10 md:text-sm bg-white text-black px-5 py-0 border-none  text-xs "
           >
             Register
           </Link>

@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import TrainingHubModel from "./view-models/TrainingHubModel";
 
 const OurTrainingHub = () => {
+  const [width, setWidth] = useState(window.innerWidth);
   var settings = {
     dots: true,
     infinite: true,
     autoplay: true,
     speed: 300,
-    slidesToShow: 4,
+    // slidesToShow: 4,
+    slidesToShow: width <= 800 ? 2 : 4,
     slidesToScroll: 1,
     arrows: false,
     lazyLoad: "progressive",
