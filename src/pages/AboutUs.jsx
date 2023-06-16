@@ -33,11 +33,11 @@ const AboutUs = () => {
       </div>
 
       <div
-        className=" mx-20 min-h-[200px] flex flex-col justify-between px-5 py-5 text-white"
+        className=" mx-20 min-h-[300px] flex flex-col justify-between px-5 py-5 text-white bg-center bg-cover"
         style={{
-          backgroundPosition: "center",
+          // backgroundPosition: "center",
           backgroundImage: `linear-gradient(to right, rgba(5,49,86, 0.92), rgba(255,255,255  , 0.0)),
-        url('images/background.jpg') ,url(${require("../assets/images/library.jpeg")})`,
+        url('images/background.jpg') ,url(${require("../assets/images/electrician.jpeg")})`,
         }}
       >
         <div className="flex flex-col gap-3">
