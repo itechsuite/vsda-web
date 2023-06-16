@@ -30,7 +30,15 @@ const AssignJob = () => {
           <select name="" id="">
             {personels && personels.length >= 1 ? (
               personels.map((personel, index) => {
-                return <option> {personel.firstname}</option>;
+                return (
+                  <option value={personel.email} className="font-bold">
+                    {`${personel.firstname} ${personel.lastname} `}
+                    <span className="text-xs font-bold">
+                      {" "}
+                      ({personel.email})
+                    </span>
+                  </option>
+                );
               })
             ) : (
               <option value=""> No Personel </option>

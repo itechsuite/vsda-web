@@ -1,7 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import FormInput from "./Inputs/FormInput";
+import { COMPOSE_EMAIL } from "../services/mailServices";
 
 const GetInTouch = () => {
+  const [values, setValue] = useState({
+    fullname: "",
+    email: "",
+    phone_number: "",
+    message: "",
+  });
+  const sendEmail = async (e) => {
+    e.preventDefault();
+
+    const { fullname, email, phone_number, message } = values;
+
+    //petty validation
+    if (
+      fullname === "" ||
+      email === "" ||
+      phone_number === "" ||
+      message === ""
+    )
+      return;
+
+    const response = await COMPOSE_EMAIL({
+      to: "info@vitalskillsda.com",
+      // from: "goodluckcanhelp@gmail.c",
+      message: `${message} \n Details: \r  Name: ${fullname} \r email: ${email} \r Mobile: ${phone_number}  `,
+      subject: `Contact Mail from: ${fullname} - ${email}`,
+    });
+
+    // console.log(response);
+  };
+
+  const handleOnChnage = (e) => {
+    const { value, id } = e.target;
+
+    setValue({ ...values, [id]: value });
+  };
+
   return (
     <section className="min-h-[50vh] py-5 px-5  py-4  ">
       <div className="flex  gap-2 my-20">
@@ -33,13 +70,19 @@ const GetInTouch = () => {
 
         <div>
           <p className="my-10">&nbsp;</p>
-          <form action="" className="w-full flex  flex-col   gap-5 px-3">
+          <form
+            action=""
+            className="w-full flex  flex-col   gap-5 px-3"
+            onSubmit={sendEmail}
+          >
             <FormInput
-              className="  "
-              title={"Name"}
+              className=""
+              title={"Fullname"}
               placeholder={"Full Name"}
-              id={"name"}
+              id={"fullname"}
+              value={values.fullname}
               type={"text"}
+              onChange={handleOnChnage}
             />
             <FormInput
               className="  "
@@ -47,18 +90,26 @@ const GetInTouch = () => {
               placeholder={"Email Address"}
               id={"email"}
               type={"email"}
+              value={values.email}
+              onChange={handleOnChnage}
             />
             <FormInput
               title={"Phone Number"}
               placeholder={"Phone Number"}
-              id={"phonenumber"}
+              id={"phone_number"}
               type={"text"}
+              value={values.phone_number}
+              onChange={handleOnChnage}
             />
 
             <textarea
               className="outline-none w-full min-h-min"
               id="message"
               placeholder="Enter message"
+              value={values.message}
+              onChange={handleOnChnage}
+
+              // onChange={handleOnChnage}
             />
 
             <button className=" self-center bg-[#e41315]  py-3 text-white font-bold rounded-full w-2/6">

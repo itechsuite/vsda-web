@@ -17,6 +17,7 @@ import OnlineStore from "./pages/OnlineStore";
 import AboutUs from "./pages/AboutUs";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import AssignJob from "./pages/AssignJob";
+import Dashboard from "./pages/Admin/Dashboard";
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
         </Route>
 
         <Route element={<PrivateRoutes />} path="/console">
-          <Route element={<AssignJob />} path="" />
+          <Route element={<Dashboard />} path="" />
           <Route element={<AssignJob />} path="staffs" />
         </Route>
       </Routes>

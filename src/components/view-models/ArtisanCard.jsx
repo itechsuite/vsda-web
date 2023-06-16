@@ -1,7 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { PersonelStatus } from "../../helper/PersonelStatus";
 
 const ArtisanCard = ({ payload, onClick }) => {
+  const processStatus = (payload) => {
+    if (!payload) return;
+
+    if (payload === PersonelStatus.available.toString()) {
+      return "Available";
+    }
+    if (payload === PersonelStatus.unavailable.toString()) {
+      return "Not Available";
+    }
+  };
   return (
     <div>
       {" "}
@@ -14,7 +25,13 @@ const ArtisanCard = ({ payload, onClick }) => {
               src="https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg"
               alt=""
             />
-            <div className=" bottom-0 right-0 absolute h-[15px] w-[15px] bg-red-700 rounded-full border border-gray-300 border-2">
+            <div
+              className={` bottom-0 right-0 absolute h-[15px] w-[15px] ${
+                payload.status === "1"
+                  ? "bg-green-700 border-white border border-1"
+                  : "bg-red-700  border-gray-300  border  border-2"
+              } rounded-full`}
+            >
               &nbsp;
             </div>
           </div>
@@ -26,7 +43,7 @@ const ArtisanCard = ({ payload, onClick }) => {
               <span className="font-extrabold px-2">
                 {payload.firstname} {payload.lastname}
                 <p className="text-center  font-normal text-xs">
-                  Not available
+                  {processStatus(payload.status)}
                 </p>
               </span>
 
