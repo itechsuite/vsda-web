@@ -17,18 +17,34 @@ const AboutUs = () => {
         </p>
       </div>
 
-      <div>
-        <FlexLayout />
+      <div className="flex flex-col gap-5 my-10">
+        <FlexLayout title={"our mission"} />
+        <FlexLayout title={"our vision"} />
       </div>
 
-      <div>
-        <div>
-          <p>Service Experts </p>
-          <p>Service Delivery Like None Other </p>
-          <p>World Class Solution Provider</p>
+      <div
+        className=" mx-20 min-h-[200px] flex flex-col justify-between px-5 py-5 text-white"
+        style={{
+          backgroundPosition: "center",
+          backgroundImage: `linear-gradient(to right, rgba(5,49,86, 0.92), rgba(255,255,255  , 0.0)),
+        url('images/background.jpg') ,url(${require("../assets/images/library.jpeg")})`,
+        }}
+      >
+        <div className="flex flex-col gap-3">
+          <p className=" uppercase font-extrabold text-2xl  ">
+            Service Experts{" "}
+          </p>
+          <div className="text-gray-200">
+            <p>Service Delivery Like None Other </p>
+            <p>World Class Solution Provider</p>
+          </div>
         </div>
 
-        <button>Explore</button>
+        <div>
+          <button className="btn bg-white hover:bg-blue-200 text-black border-none px-10 text-lg">
+            Explore
+          </button>
+        </div>
       </div>
     </section>
   );
