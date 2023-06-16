@@ -6,7 +6,7 @@ const TrainingHubModel = ({ details, title, image }) => {
       <img
         src={image || require("../../assets/images/automation.png")}
         alt=""
-        className="cursor-pointer rounded-sm w-full h-[250px] "
+        className="cursor-pointer rounded-sm w-full h-[250px] bg-center object-cover"
       />
       <div className="py-3">
         <p className="text-md font-bold ">{title || "Training Hall"}</p>

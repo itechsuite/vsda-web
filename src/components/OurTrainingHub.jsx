@@ -10,7 +10,7 @@ const OurTrainingHub = () => {
     autoplay: true,
     speed: 300,
     // slidesToShow: 4,
-    slidesToShow: width <= 800 ? 2 : 4,
+    slidesToShow: width <= 800 ? 2 : 5,
     slidesToScroll: 1,
     arrows: false,
     lazyLoad: "progressive",
