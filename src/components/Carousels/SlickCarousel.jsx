@@ -49,7 +49,7 @@ const SlickCarousel = () => {
 
             <Link
               to={"https://serviceexpert.com.ng/services.html"}
-              className="btn normal  bg-white bg-[#dc4124]  border-none font-bold  rounded-sm"
+              className="btn normal  bg-[#dc4124]  border-none font-bold  rounded-sm"
             >
               Learn More
             </Link>

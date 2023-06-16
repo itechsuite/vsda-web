@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import SlickCarousel from "../components/Carousels/SlickCarousel";
 import IntroVideo from "../components/IntroVideo";
 import GetInTouch from "../components/GetInTouch";
+import OurTrainingHub from "../components/OurTrainingHub";
 
 const Home = () => {
   return (
@@ -22,6 +23,8 @@ const Home = () => {
       <KeyNotes />
 
       <IntroVideo />
+
+      <OurTrainingHub />
 
       {/* <CoursesList /> */}
 
