@@ -13,15 +13,7 @@ const FlexLayout = ({ title, details, image }) => {
       </div>
       <div className="w-2/4">
         <p className="uppercase font-bold text-2xl">{title || "title"} </p>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa
-          voluptates quaerat praesentium, magnam voluptatibus provident
-          excepturi inventore culpa ab ut blanditiis hic illum illo itaque a
-          porro quae. Officiis, similique. Fugit incidunt repellat facilis
-          voluptate vero exercitationem repudiandae nobis illum aliquid omnis
-          repellendus, expedita in molestias veritatis quo eligendi nesciunt,
-          officiis ratione rerum soluta? Ad numquam quis ducimus nam autem?
-        </p>
+        <p>{details || ""}</p>
       </div>
     </div>
   );
