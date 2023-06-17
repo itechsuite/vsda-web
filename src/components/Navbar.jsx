@@ -54,7 +54,7 @@ const Navbar = () => {
       className={
         fixed
           ? "sticky top-0 bg-white   z-50"
-          : " bg-transparent  z-50  transition-all ease-in-out"
+          : " bg-white  z-50  transition-all ease-in-out"
       }
     >
       <div className="bg-[#e71211]  py-3 flex justify-between  items-center text-white pr-3">
