@@ -19,7 +19,7 @@ const Modal1 = ({ visible, children, onClose, heading }) => {
       }
     >
       <div
-        className="min-h-[300px] w-3/5 rounded bg-white px-10 py-10   "
+        className="min-h-[300px] md:w-2/4 rounded bg-white px-10 py-10   w-3/4 "
         onDoubleClick={() => onClose}
       >
         <div

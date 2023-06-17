@@ -13,10 +13,15 @@ import RegisterNow from "../components/CTAs/RegisterNow";
 
 import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
+import { COMPOSE_EMAIL } from "../services/mailServices";
+import { DEFUALT_EMAIL_SENDER } from "../core/constants";
+import { ToastContainer, toast } from "react-toastify";
+import { GET_ALL_COURSES, GET_ALL_COURSES2 } from "../services/CourseServices";
 const Skills = () => {
   const [skill, setSkills] = useState([]);
   const [selected, setSelected] = useState("");
   const [artisans, setArtisans] = useState([]);
+  const [courses, setCourses] = useState([]);
   const [modal, setModal] = useState(false);
   const [enrolModal, setEnrolModal] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -28,6 +33,7 @@ const Skills = () => {
     address: "",
     email: "",
     phoneNumber: "",
+    staff: "",
     extra: "",
   });
 
@@ -42,8 +48,8 @@ const Skills = () => {
   const handleEnrolment = async (e) => {
     e.preventDefault();
 
-    const { course_id, course_name, email, fullname, phoneNumber } = enrollment;
-    // alert(JSON.stringify(values));
+    const { course_name, email, fullname, phoneNumber } = enrollment;
+    alert(JSON.stringify(enrollment));
 
     if (
       course_name === "" ||
@@ -55,10 +61,23 @@ const Skills = () => {
 
     setLoading(true);
 
-    setTimeout(() => {
+    setTimeout(async () => {
+      const mail = await COMPOSE_EMAIL({
+        to: DEFUALT_EMAIL_SENDER,
+        subject: `REGISTRATION NOTICE FOR  - ${fullname}`,
+        message: `${fullname} have indicated interest to Learn ${course_name}  \n \n  USER DETAILS: \n  FULLNAME: ${fullname} \n  EMAIL: ${email} \n  PHONE NUMBER: ${phoneNumber}  `,
+      });
+      console.log(mail);
+      if (!mail.isOk) {
+        toast.warn("Please resubmit the form");
+        return;
+      }
+
+      toast.success("Request submitted successfully.");
+      setModal(false);
       setLoading(false);
       setSuccess(true);
-    }, 4000);
+    }, 1000);
   };
   const fetchSkills = async () => {
     const res = await GET_ALL_SKILLS();
@@ -88,6 +107,7 @@ const Skills = () => {
 
   useEffect(() => {
     fetchSkills();
+    getAllCourse();
   }, []);
 
   useEffect(() => {
@@ -103,11 +123,53 @@ const Skills = () => {
     const { value, id } = e.target;
     setValues({ ...values, [id]: value });
   };
+  const handleEnrolmentFormOnChange = (e) => {
+    console.log(e.target.value);
+    const { value, id } = e.target;
+    setEnrollment({ ...enrollment, [id]: value });
+  };
 
   if (loading) {
     return <PageLoader />;
   }
 
+  const handleSubmitRequest = async (e) => {
+    e.preventDefault();
+
+    const { address, email, extra, fullname, phoneNumber, staff } = values;
+
+    if (
+      address === "" ||
+      email === "" ||
+      extra === "" ||
+      fullname === "" ||
+      phoneNumber === "" ||
+      staff === ""
+    )
+      return;
+
+    const mail = await COMPOSE_EMAIL({
+      to: DEFUALT_EMAIL_SENDER,
+      subject: `REQUEST FORM FOR - ${staff}`,
+      message: `${fullname} just requested the service of ${staff} \n \n  CUSTOMER DETAILS: \n  FULLNAME: ${fullname} \n ADDRESS: ${address} \n PHONE NUMBER: ${phoneNumber} \n ADDITIONAL INFO: ${extra} `,
+    });
+    console.log(mail);
+    if (!mail.isOk) {
+      toast.warn("Please resubmit the form");
+      return;
+    }
+
+    toast.success("Request submitted successfully.");
+    setModal(false);
+  };
+  async function getAllCourse() {
+    const res = await GET_ALL_COURSES2();
+    if (!res.isOk) {
+      setCourses([]);
+      return;
+    }
+    setCourses(res.data);
+  }
   return (
     <div className="py-5">
       <section
@@ -176,7 +238,13 @@ const Skills = () => {
                   return (
                     <ArtisanCard
                       payload={artisan}
-                      onClick={() => setModal(true)}
+                      onClick={() => {
+                        setModal(true);
+                        setValues({
+                          ...values,
+                          staff: `${artisan.firstname} ${artisan.lastname} `,
+                        });
+                      }}
                     />
                   );
                 })}
@@ -192,12 +260,12 @@ const Skills = () => {
           )}
         </div>
 
-        <Modal1 visible={modal} onClose={() => setModal(false)}>
+        <Modal1 visible={modal} onClose={() => setModal(!modal)}>
           <div className="">
             <div>
               <h1 className="font-extrabold mb-10">Request Form</h1>
             </div>
-            <form className="flex flex-col  ">
+            <form className="flex flex-col  " onSubmit={handleSubmitRequest}>
               <FormInput
                 id={"fullname"}
                 placeholder={"Fullname"}
@@ -223,6 +291,14 @@ const Skills = () => {
                 onChange={handleFormOnChange}
               />
               <FormInput
+                className={"text-blue-400 "}
+                id={"staff"}
+                placeholder={"staff"}
+                disabled
+                value={values.staff}
+                onChange={handleFormOnChange}
+              />
+              <FormInput
                 id={"extra"}
                 placeholder={"Additional Info"}
                 value={values.extra}
@@ -235,7 +311,7 @@ const Skills = () => {
         </Modal1>
       </section>
 
-      <RegisterNow onClick={() => setEnrolModal()} />
+      <RegisterNow onClick={() => setEnrolModal(true)} />
 
       <Modal1 visible={enrolModal} onClose={() => setEnrolModal(false)}>
         {success === false && (
@@ -248,27 +324,39 @@ const Skills = () => {
                 id={"fullname"}
                 placeholder={"Enter your fullname"}
                 value={enrollment.fullname}
-                onChange={handleFormOnChange}
+                onChange={handleEnrolmentFormOnChange}
               />
-              <FormInput
+              <select id="course_name" onChange={handleEnrolmentFormOnChange}>
+                {courses && courses.length >= 1
+                  ? courses.map((course, index) => {
+                      return (
+                        <option value={course.course_title}>
+                          {course.course_title}
+                        </option>
+                      );
+                    })
+                  : null}
+              </select>
+              {/* <FormInput
                 id={"course_name"}
                 placeholder={"Course Name"}
                 value={enrollment.course_name}
                 disabled={true}
                 onChange={handleFormOnChange}
-              />
+              /> */}
               <FormInput
                 type={"email"}
                 id={"email"}
                 placeholder={"email"}
                 value={enrollment.email}
-                onChange={handleFormOnChange}
+                onChange={handleEnrolmentFormOnChange}
               />
+
               <FormInput
                 id={"phoneNumber"}
                 placeholder={"phoneNumber"}
                 value={enrollment.phoneNumber}
-                onChange={handleFormOnChange}
+                onChange={handleEnrolmentFormOnChange}
               />
 
               <button className="mt-5 btn"> Submit</button>
@@ -298,6 +386,8 @@ const Skills = () => {
           </div>
         )}
       </Modal1>
+
+      <ToastContainer position="bottom-left" />
     </div>
   );
 };
