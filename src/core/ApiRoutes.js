@@ -7,3 +7,4 @@ export const ROUTE_SHOW_ALL_PRODUCTS = `${API_URL}/products`;
 export const ROUTE_ALL_COURSE_CATEGORY = `${API_URL}/courses/categories`;
 export const ROUTE_GET_COURSE_DETAILS = `${API_URL}/courses/course/detail`;
 export const ROUTE_SEND_EMAIL = `${EMAIL_SERVER}/mailing/compose`;
+export const ROUTE_TOGGLE_PERSONEL_VISIBILITY = `${API_URL}/artisans/status`;

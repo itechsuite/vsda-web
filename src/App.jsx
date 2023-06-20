@@ -16,7 +16,7 @@ import Skills from "./pages/Skills";
 import OnlineStore from "./pages/OnlineStore";
 import AboutUs from "./pages/AboutUs";
 import PrivateRoutes from "./routes/PrivateRoutes";
-import AssignJob from "./pages/AssignJob";
+import AssignJob from "./pages/Admin/AssignJob";
 import Dashboard from "./pages/Admin/Dashboard";
 
 function App() {

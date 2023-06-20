@@ -19,9 +19,6 @@ const ProductModel = ({ payload, onClick }) => {
         <p className=" uppercase text-lg font-bold">{payload.product_name}</p>
 
         <div>
-          {/* <p className="font-semibold text-gray-500">
-            {CurrencyFormatter(payload.amount)}
-          </p> */}
           <p className="font-light">{payload.product_details}</p>
         </div>
       </div>
