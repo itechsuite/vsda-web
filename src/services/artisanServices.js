@@ -26,17 +26,17 @@ export const ALL_ARTISANS = async () => {
     }
 
     const response = await axios.get(`${ROUTE_SHOW_ALL_ARTISANS}`);
-    console.log(response);
+    console.log(response.request.status, "joy");
 
     return CustomResponse({
       data: response.data.data,
-      code: response.status,
+      code: response.request.status,
       message: response.data.message,
       error: response,
     });
   } catch (error) {
     // return error.response || error.message;
-    console.log(JSON.stringify(error.name));
+    console.log(JSON.stringify(error, "diaper"));
     return CustomResponse({
       code: 500,
       error: error || error.response || error.message,
@@ -59,21 +59,20 @@ export const TOGGLE_PERSONEL_VISIBILITY = async (payload) => {
       `${ROUTE_TOGGLE_PERSONEL_VISIBILITY}`,
       payload
     );
-    console.log(response);
+    console.log(response, "styleplus");
 
     return CustomResponse({
       data: response.data.data[0],
-      code: response.status,
+      code: response.request.status,
       message: response.data.message,
       // error: response.,
     });
   } catch (error) {
-    // return error.response || error.message;
-    console.log(JSON.stringify(error.name));
+    console.log(error.response);
     return CustomResponse({
       code: 500,
       error: error || error.response || error.message,
-      message: error.response.data.message,
+      message: error.message,
     });
   }
 };

@@ -26,7 +26,6 @@ const AssignJob = () => {
     allArtisans();
   }, []);
 
-  const handleSwitchChange = () => {};
   return (
     <div className="min-h-[100vh]">
       <div className="px-5 py-10 flex flex-col gap-5">
@@ -41,26 +40,6 @@ const AssignJob = () => {
             <p> No Personel </p>
           )}
         </Accordion>
-
-        <div
-          tabIndex={0}
-          className={`collapse  collapse-arrow border border-base-300 bg-base-200`}
-        >
-          <div className="collapse-title  px-4">
-            <div className="flex  items-center justify-between">
-              <p>{/* {payload.firstname} {payload.lastname} */}</p>
-            </div>
-          </div>
-          <div className="collapse-content">
-            <div className="flex items-center justify-between">
-              <p> Availability: </p>
-            </div>
-            <p>Email: </p>
-            <p>Address:</p>
-
-            <button>Make Staff Available</button>
-          </div>
-        </div>
       </div>
     </div>
   );
