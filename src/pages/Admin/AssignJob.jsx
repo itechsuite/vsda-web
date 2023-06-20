@@ -7,6 +7,7 @@ import { Accordion } from "react-accessible-accordion";
 const AssignJob = () => {
   const [personels, setPersonels] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [success, setSuccess] = useState(false);
 
   const allArtisans = async () => {
     const res = await ALL_ARTISANS();

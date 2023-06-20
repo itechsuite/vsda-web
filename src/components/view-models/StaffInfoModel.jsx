@@ -8,19 +8,34 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import { TOGGLE_PERSONEL_VISIBILITY } from "../../services/artisanServices";
+import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const StaffInfoModel = ({ payload }) => {
   const [checked, setChecked] = useState(false);
   const [visible, setVisibility] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [success, setSuccess] = useState(false);
   const handleSwitchChange = () => {
     setChecked(!checked);
   };
 
   const changePersonelStatus = async ({ email, status }) => {
     // console.log({ email, status });
-
+    setLoading(true);
     const res = await TOGGLE_PERSONEL_VISIBILITY({ email, state: status });
     console.log(res);
+
+    if (!res.isOk) {
+      setLoading(false);
+      setSuccess(false);
+      toast.error("Cannot validate request");
+      return;
+    }
+
+    setLoading(false);
+    setSuccess(true);
+    toast.success("Personel Status updated");
   };
   return (
     <AccordionItem className="bg-[#f6f6f6] my-4 ">
@@ -62,6 +77,8 @@ const StaffInfoModel = ({ payload }) => {
           {payload.status === "1" ? "Assign a Job" : "Make Staff Available"}
         </button>
       </AccordionItemPanel>
+
+      <ToastContainer />
     </AccordionItem>
   );
 };

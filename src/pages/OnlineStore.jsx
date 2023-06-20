@@ -76,7 +76,7 @@ const OnlineStore = () => {
       </div>
 
       <FullModal onClose={() => setModal(false)} visible={modal}>
-        <div className="relative flex flex-row justify-center gap-2 h-[100%]">
+        <div className="relative flex md:flex-row justify-center gap-2 h-[100%] flex-col ">
           <XMarkIcon
             id="master"
             className="w-6 text-gray-400 hover:text-red-600  absolute top-3 right-3 "
