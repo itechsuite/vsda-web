@@ -13,10 +13,10 @@ const ProductModel = ({ payload, onClick }) => {
           payload.product_image || require("../../assets/images/no-image.png")
         }
         alt=""
-        className="min-h-[200px] max-h-[200px] rounded-tl-lg rounded-tr-lg bg-right-top"
+        className=" max-h-[200px] rounded-tl-lg rounded-tr-lg bg-right-top"
       />
       <div className="px-3 py-2 ">
-        <p className=" uppercase text-lg font-bold">{payload.product_name}</p>
+        <p className=" uppercase text-sm font-bold">{payload.product_name}</p>
 
         <div>
           <p className="font-light">{payload.product_details}</p>

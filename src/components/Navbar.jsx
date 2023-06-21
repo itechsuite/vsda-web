@@ -96,10 +96,13 @@ const Navbar = () => {
             })}
         </div>
 
-        <Bars3Icon
-          onClick={() => setMobileMenu(true)}
-          className="w-10 cursor-pointer md:hidden lg:hidden"
-        />
+        <div className="flex items-center gap-2">
+          <p className="uppercase text-lg">Menu</p>
+          <Bars3Icon
+            onClick={() => setMobileMenu(true)}
+            className="w-10 cursor-pointer md:hidden lg:hidden"
+          />
+        </div>
       </div>
 
       {/* Mobile View  */}
