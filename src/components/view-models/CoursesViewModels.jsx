@@ -29,8 +29,12 @@ const CoursesViewModels = ({ payload, onClick }) => {
         //     "url(https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80)",
         // }}
       >
-        <p className=" px-2 py-1 uppercase text-xs  rounded-sm absolute top-2 right-2 bg-blue-500 text-white">
-          COURSE DURATION <span className="font-extrabold">{course_plan}</span>
+        <p
+          onClick={onClick}
+          className=" px-2 py-1 uppercase text-xs  font-extrabold cursor-pointer rounded-sm absolute top-2 right-2 bg-blue-500 text-white"
+        >
+          Get course details
+          {/* COURSE DURATION <span className="font-extrabold">{course_plan}</span> */}
         </p>
       </div>
 

@@ -120,14 +120,14 @@ const CourseDetail = () => {
             </ul>
           </div>
         </div>
-        <div className=" flex justify-between bg-blue-400  py-5 px-3">
+        {/* <div className=" flex justify-between bg-blue-400  py-5 px-3">
           <p className=" font-normal text-white">Duration & Cost </p>
 
           <div className="flex gap-2">
             <ClockIcon className="w-6 text-white" />
             <p className=" text-white font-black">{course_detail.duration}</p>
           </div>
-        </div>
+        </div> */}
         <h2 className="">What you'll learn</h2>
 
         <h3

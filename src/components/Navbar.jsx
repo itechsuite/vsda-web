@@ -57,11 +57,11 @@ const Navbar = () => {
           : " bg-white  z-50  transition-all ease-in-out"
       }
     >
-      <div className="bg-[#e71211]  py-2 flex justify-between  items-center text-white pr-3">
+      <div className="bg-[#e71211]  py-2 flex justify-between   items-center text-white pr-3">
         <Logo />
 
-        <div className="flex md:text-sm flex-row md:gap-1 items-center ">
-          <p className="hidden md:flex">
+        <div className="flex md:text-sm flex-row md:gap-1 gap-2 items-center ">
+          <p className="hidden md:flex text-xs">
             For Course Advice and bookings call :
           </p>
           <a href="tel:2348026393322 " className="md:text-sm  text-xs">

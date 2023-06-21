@@ -20,6 +20,7 @@ import { GET_ALL_COURSES, GET_ALL_COURSES2 } from "../services/CourseServices";
 const Skills = () => {
   const [skill, setSkills] = useState([]);
   const [selected, setSelected] = useState("");
+  const [selectedSkill, setSelectedSkill] = useState("");
   const [artisans, setArtisans] = useState([]);
   const [courses, setCourses] = useState([]);
   const [modal, setModal] = useState(false);
@@ -116,6 +117,7 @@ const Skills = () => {
   const handleSkillClick = async (e) => {
     console.log(e.target.id);
     setSelected(e.target.id);
+    setSelectedSkill(e.target.value);
     // await fetchArtisans(e.target.id);
   };
 
@@ -238,6 +240,7 @@ const Skills = () => {
                   return (
                     <ArtisanCard
                       payload={artisan}
+                      skill={selectedSkill}
                       onClick={() => {
                         setModal(true);
                         setValues({

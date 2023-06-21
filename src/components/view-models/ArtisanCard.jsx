@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { PersonelStatus } from "../../helper/PersonelStatus";
 
-const ArtisanCard = ({ payload, onClick }) => {
+const ArtisanCard = ({ payload, onClick, skill }) => {
   const processStatus = (payload) => {
     if (!payload) return;
 
@@ -47,11 +47,9 @@ const ArtisanCard = ({ payload, onClick }) => {
                 </p>
               </span>
 
-              <p>Brief details of the user</p>
+              <p>Skill : {skill}</p>
 
-              <div>
-                <p className="font-bold">Previous Jobs done </p>
-              </div>
+              <p>Experience Level: Experience level </p>
 
               <button
                 onClick={onClick}
