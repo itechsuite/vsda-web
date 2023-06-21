@@ -115,7 +115,7 @@ const Skills = () => {
     fetchArtisans(selected);
   }, [selected]);
   const handleSkillClick = async (e) => {
-    console.log(e.target.id);
+    console.log(e.target.value);
     setSelected(e.target.id);
     setSelectedSkill(e.target.value);
     // await fetchArtisans(e.target.id);
