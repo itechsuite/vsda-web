@@ -49,7 +49,7 @@ const ArtisanCard = ({ payload, onClick, skill }) => {
 
               <p>Skill : {skill}</p>
 
-              <p>Experience Level: Experience level </p>
+              <p>Experience Level: {payload.level} </p>
 
               <button
                 onClick={onClick}
