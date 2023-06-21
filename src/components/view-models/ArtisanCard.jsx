@@ -21,8 +21,12 @@ const ArtisanCard = ({ payload, onClick, skill }) => {
         <div className=" flex flex-col gap-4 px-4 items-center py-4">
           <div className="relative ">
             <img
-              className="w-[50px] rounded-full h-[50px]"
-              src="https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg"
+              className="w-[50px] rounded-full h-[50px] object-center object-cover"
+              src={`${
+                payload.address ||
+                "https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg"
+              }`}
+              // src="https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg"
               alt=""
             />
             <div
