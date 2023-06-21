@@ -40,12 +40,12 @@ const CoursesViewModels = ({ payload, onClick }) => {
 
       <div className="px-3 flex flex-col  py-3">
         <div className="flex flex-row justify-between items-center  ">
-          <div className="flex flex-row bg-yellow-100  gap-1 rounded-full px-3 text-sm justify-center items-center">
+          <div className="flex flex-row py-1 bg-yellow-100  gap-1 rounded-full px-3 text-sm justify-center items-center">
             <div className="bg-black rounded-full w-2 h-2">&nbsp;</div>
             <p className="text-xs uppercase">{payload.category}</p>
           </div>
 
-          <p>{CurrencyFormatter(cost)}</p>
+          {/* <p>{CurrencyFormatter(cost)}</p> */}
         </div>
 
         <div>
