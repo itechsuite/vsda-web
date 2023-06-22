@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 import TrainingHubModel from "./view-models/TrainingHubModel";
+import useCurrentWidth from "../hooks/useCurrentWidth";
 
 const OurTrainingHub = () => {
-  const [width, setWidth] = useState(window.innerWidth);
+  // const [width, setWidth] = useState(window.innerWidth);
+
+  const width = useCurrentWidth();
+
+  const handleSlideShow = () => {
+    return 2;
+  };
   var settings = {
     dots: true,
     // infinite: true,
@@ -25,26 +32,30 @@ const OurTrainingHub = () => {
           <TrainingHubModel
             title={"Training Hall"}
             details={"Equipped with state of the Art Training Materials"}
-            image={require("../assets/images/solutions/GABBY.png")}
+            image={"https://console.vitalskillsda.com/images/hall1.jpg"}
           />
           <TrainingHubModel
             title={"Training Hall"}
             details={"Equipped with state of the Art Training Materials"}
-            image={require("../assets/images/solutions/HALL2.png")}
+            image={"https://console.vitalskillsda.com/images/hall3.jpg"}
           />
           <TrainingHubModel
             title={"Automation Bench"}
             details={
               "Get Hands-On Experience with our Best-In-Class Automation Work bench"
             }
-            image={require("../assets/images/solutions/HALL1.png")}
+            image={
+              "https://console.vitalskillsda.com/images/automation-image.jpg"
+            }
           />
           <TrainingHubModel
-            title={"Industrial Electric"}
+            title={"Domestic Electric"}
             details={
               "A pratical Lab where students do it themselves with A Real world Scenario Equipment"
             }
-            image={require("../assets/images/solutions/WIRING-BOARD.png")}
+            image={
+              "https://console.vitalskillsda.com/images/domestic-electric.jpg"
+            }
           />
           <TrainingHubModel
             title={"Electric Motor Work Bench "}
