@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ProductModel from "../components/view-models/ProductModel";
 import { GET_ALL_PRODUCTS } from "../services/store";
 import PageLoader from "../components/Loaders/PageLoader";

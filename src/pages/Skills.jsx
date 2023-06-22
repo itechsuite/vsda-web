@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import image from "../assets/images/solar-installation.jpeg";
 import { GET_ALL_SKILLS } from "../services/skillsServices";
 import { GET_ALL_ARTISANS } from "../services/artisanServices";
@@ -18,6 +18,8 @@ import { DEFUALT_EMAIL_SENDER } from "../core/constants";
 import { ToastContainer, toast } from "react-toastify";
 import { GET_ALL_COURSES, GET_ALL_COURSES2 } from "../services/CourseServices";
 const Skills = () => {
+  const personels_container = useRef(null);
+
   const [skill, setSkills] = useState([]);
   const [selected, setSelected] = useState("");
   const [selectedSkill, setSelectedSkill] = useState("");
@@ -107,6 +109,8 @@ const Skills = () => {
       setLoading(false);
       return;
     }
+
+    personels_container.current?.focus();
     setLoading(false);
     setArtisans(res);
     console.log(res);
@@ -242,7 +246,10 @@ const Skills = () => {
           )}
 
           {!loading && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4">
+            <div
+              ref={personels_container}
+              className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4"
+            >
               {artisans &&
                 artisans.length >= 1 &&
                 artisans.map((artisan, index) => {

@@ -10,15 +10,18 @@ const ProductModel = ({ payload, onClick, color }) => {
       </div>
 
       <div
-        //       style={{
-        //         backgroundImage: `linear-gradient(to bottom, rgba(226,79,67, 0.99), rgba(0,0,0, 0.93)),
-        // url('images/background.jpg') ,url(${payload.product_image})`,
-        //       }}
-        className={`min-h-[200px] ${
-          color || "bg-[#e24f43]"
-        }   flex flex-col items-center justify-center px-10 text-center gap-4`}
+        style={{
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0, 0.65), rgba(0,0,0, 0.30)),
+        url('images/background.jpg') ,url(${payload.product_image})`,
+        }}
+        className={`min-h-[200px] ${color}   flex flex-col items-center justify-center px-10 text-center gap-4`}
       >
-        <p className=" uppercase text-lg font-bold">{payload.product_name}</p>
+        <p className=" uppercase text-lg font-bold text-white">
+          {payload.product_name}
+        </p>
         <p className="font-bold text-white">Price on Request</p>
       </div>
       {/* <img
@@ -30,7 +33,8 @@ const ProductModel = ({ payload, onClick, color }) => {
       /> */}
       <div
         className=" 
- [&>*:nth-child(odd)]:bg-gray-200 [&>*:nth-child(even)]:bg-gray-300"
+              ref={personels_container}
+ [&>*:nth-child(odd)]:bg-[#f5f5f5] [&>*:nth-child(even)]:bg-[#fafafa]"
       >
         {/* <p className="font-light">{payload.product_details}</p> */}
 
