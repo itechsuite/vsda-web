@@ -219,8 +219,8 @@ const Skills = () => {
               )}
 
               {loading && skill.length === 0 && (
-                <div className="   h-full flex flex-col justify-center items-center  ">
-                  <p className="font-extrabold text-2xl  text-white">
+                <div className="   h-full flex flex-col justify-center items-center ">
+                  <p className="font-extrabold text-2xl   bg-white  text-white">
                     No Artisan for this skill
                   </p>
                 </div>
@@ -261,10 +261,13 @@ const Skills = () => {
           )}
 
           {!loading && artisans.length === 0 && (
-            <div className="   h-full flex flex-col justify-center items-center  ">
-              <p className="font-extrabold text-2xl">
-                No Artisan for this skill
-              </p>
+            <div className=" h-full flex flex-col justify-center items-center ">
+              <div className="  md:w-2/5 md:h-1/6 rounded-md bg-opacity-5 text-white flex flex-col justify-center items-center bg-white ">
+                <p className="font-extrabold text-2xl">No Personel found</p>
+                <p className="text-center">
+                  Choose a category to view personels
+                </p>
+              </div>
             </div>
           )}
         </div>
