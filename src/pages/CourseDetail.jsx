@@ -128,16 +128,23 @@ const CourseDetail = () => {
             <p className=" text-white font-black">{course_detail.duration}</p>
           </div>
         </div> */}
-        <h2 className="">What you'll learn</h2>
+        <h2 className="font-black">What you'll learn </h2>
 
-        <h3
-          className=""
-          dangerouslySetInnerHTML={{ __html: course_detail.course_details }}
-        ></h3>
+        <p>{course_detail.details}</p>
+
+        {course_detail.course_details && (
+          <div>
+            <h2 className="font-black">Course Outline </h2>
+            <h3
+              className=""
+              dangerouslySetInnerHTML={{ __html: course_detail.course_details }}
+            ></h3>
+          </div>
+        )}
 
         <button
           onClick={() => setModal(true)}
-          className="border w-3/5 px-3 py-2 rounded-full  text-black hover:text-white hover:bg-blue-400 hover:border-none  font-bold btn bg-transparent"
+          className="border mx-auto  px-4 py-2 rounded-full  text-black hover:text-white hover:bg-blue-400 hover:border-none  text-xs  font-bold btn bg-transparent"
         >
           Enroll this course
         </button>

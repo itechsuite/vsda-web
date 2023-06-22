@@ -50,7 +50,7 @@ const CoursesViewModels = ({ payload, onClick }) => {
 
         <div>
           <p className="uppercase  font-bold">{payload.course_title}</p>
-          <p onClick={onClick}>{details}</p>
+          <p>{details.substr(0, 50)}...</p>
         </div>
       </div>
 

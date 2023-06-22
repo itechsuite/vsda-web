@@ -13,7 +13,7 @@ const FormInput = ({
 }) => {
   return (
     <div
-      className={`flex flex-col gap-3 w-full  uppercase text-gray-500 font-light   ${className}`}
+      className={`flex flex-col gap-3 w-full  uppercase placeholder-black  font-bold text-gray-800    ${className}`}
     >
       {/* <label htmlFor="">{title || "labeel"}</label> */}
       <input
