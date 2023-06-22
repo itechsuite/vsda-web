@@ -60,11 +60,13 @@ const Navbar = () => {
     >
       {/* top navigator  */}
       <div className="flex md:text-sm  px-2 py-2 flex-row md:gap-1 gap-2 items-center justify-between ">
-        <div className="flex gap-3">
-          <p className=" ">For Course Advice and bookings call :</p>
+        <div className="flex gap-3 items-center">
+          <p className=" hidden md:flex text-sm  lg:flex">
+            For Course Advice and bookings call :
+          </p>
           <a
             href="tel:2348026393322 "
-            className="md:text-sm  flex  gap-1 text-gray-600 text-xs font-bold hover:text-black"
+            className="md:text-sm  flex  gap-1 text-gray-600 text-sm font-bold hover:text-black"
           >
             <PhoneArrowUpRightIcon className="text-gray-600 w-5 hover:text-black" />
             +234(0)8026393322
