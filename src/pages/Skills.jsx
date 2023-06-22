@@ -190,7 +190,7 @@ const Skills = () => {
 
             {/* Skills market place application */}
 
-            <div className="py-6 col-span-8 flex flex-col gap-3">
+            <div className="py-6 col-span-8 flex flex-col gap-3" autoFocus>
               {skill.length >= 1 ? (
                 skill.map((data, index) => {
                   return (
