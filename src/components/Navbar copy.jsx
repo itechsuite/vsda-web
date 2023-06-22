@@ -3,12 +3,11 @@ import {
   Bars3BottomLeftIcon,
   Bars3Icon,
   MagnifyingGlassIcon,
-  PhoneArrowUpRightIcon,
-  PhoneIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Link, NavLink } from "react-router-dom";
 import RightModal from "./Modal/RightModal";
+import Logo from "./Logo";
 const Navbar = () => {
   const menus = [
     {
@@ -58,57 +57,43 @@ const Navbar = () => {
           : " bg-white  z-50  transition-all ease-in-out"
       }
     >
-      {/* top navigator  */}
-      <div className="flex md:text-sm  px-2 py-2 flex-row md:gap-1 gap-2 items-center justify-between ">
-        <div className="flex gap-3">
-          <p className=" ">For Course Advice and bookings call :</p>
-          <a
-            href="tel:2348026393322 "
-            className="md:text-sm  flex  gap-1 text-gray-600 text-xs font-bold hover:text-black"
-          >
-            <PhoneArrowUpRightIcon className="text-gray-600 w-5 hover:text-black" />
+      <div className="bg-[#e71211]  py-2 flex justify-between   items-center text-white pr-3">
+        <Logo />
+
+        <div className="flex md:text-sm flex-row md:gap-1 gap-2 items-center ">
+          <p className="hidden md:flex text-xs">
+            For Course Advice and bookings call :
+          </p>
+          <a href="tel:2348026393322 " className="md:text-sm  text-xs">
             +234(0)8026393322
           </a>
+
+          <Link
+            to={"/contact"}
+            className="btn  md:rounded-full md:px-10 md:text-sm bg-white text-black px-5 py-0 border-none  text-xs "
+          >
+            Register
+          </Link>
         </div>
-        <Link
-          to={"/contact"}
-          className=" rounded-full py-2 px-5  border-2 border-red-600 text-xs bg-transparent text-black"
-        >
-          Register
-        </Link>
       </div>
-
-      {/* end of top navigator  */}
-
-      {/* main navigator */}
-      <div className="bg-[#e71211]  py-2 flex  px-2 justify-between ">
-        <div className="flex items-center gap-4 ">
-          <img
-            src={require("../assets/images/logo/vsda-logo.png")}
-            alt="logo"
-            className="md:w-1/5 w-2/5"
-          />
-          {/* <Logo /> */}
-
-          {/* <div>vsda</div> */}
-          <div className="   gap-4 px-24 hidden md:flex text-white font-bold  lg:flex sm:hidden py-1">
-            {menus &&
-              menus.length > 1 &&
-              menus.map((menu, index) => {
-                return (
-                  <NavLink
-                    to={menu.link}
-                    className={({ isActive, isPending }) =>
-                      isActive
-                        ? "after:h-1  after:bg-blue-400  after:absolute relative  after:w-full after:-bottom-1 after:left-0  after:content-['']"
-                        : "font-light"
-                    }
-                  >
-                    <p>{menu.name}</p>
-                  </NavLink>
-                );
-              })}
-          </div>
+      <div className="flex gap-4   pt-2 flex-row w-full   items-end justify-end pl-16  pr-5">
+        <div className="  gap-4 px-24 hidden md:flex  lg:flex sm:hidden py-1">
+          {menus &&
+            menus.length > 1 &&
+            menus.map((menu, index) => {
+              return (
+                <NavLink
+                  to={menu.link}
+                  className={({ isActive, isPending }) =>
+                    isActive
+                      ? "after:h-1  after:bg-blue-400  after:absolute relative  after:w-full after:-bottom-1 after:left-0  after:content-['']"
+                      : "font-light"
+                  }
+                >
+                  <p>{menu.name}</p>
+                </NavLink>
+              );
+            })}
         </div>
 
         <div className="flex items-center gap-2">
@@ -120,9 +105,8 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* end of main navigator  */}
-
       {/* Mobile View  */}
+
       <RightModal onClose={() => setMobileMenu(false)} visible={mobile_menu}>
         <p
           className="text-right self-end lowercase   font-light  hover:font-bold cursor-pointer"
