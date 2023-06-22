@@ -121,16 +121,16 @@ const Skills = () => {
     fetchArtisans(selected);
   }, [selected]);
   const handleSkillClick = async (e) => {
-    console.log(e.target.value);
+    console.log(e.target);
     setSelected(e.target.id);
     setSelectedSkill(e.target.value);
-    // await fetchArtisans(e.target.id);
   };
 
   const handleFormOnChange = (e) => {
     const { value, id } = e.target;
     setValues({ ...values, [id]: value });
   };
+
   const handleEnrolmentFormOnChange = (e) => {
     console.log(e.target.value);
     const { value, id } = e.target;
@@ -200,18 +200,21 @@ const Skills = () => {
               {skill.length >= 1 ? (
                 skill.map((data, index) => {
                   return (
-                    <p
-                      className={
-                        selected === data.name
-                          ? "font-extrabold"
-                          : "cursor-pointer hover:font-bold"
-                      }
+                    <button
+                      name={data.display}
+                      className={`
+                        ${
+                          selected === data.name
+                            ? "font-extrabold"
+                            : "cursor-pointer hover:font-bold"
+                        } btn text-start px-0 mx-0 bg-transparent text-black border-none hover:bg-blue-200 hover:px-3`}
                       id={data.name}
                       onClick={handleSkillClick}
                       key={index}
+                      value={data.display}
                     >
                       {data.display}
-                    </p>
+                    </button>
                   );
                 })
               ) : (
