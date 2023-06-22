@@ -18,6 +18,7 @@ import AboutUs from "./pages/AboutUs";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import AssignJob from "./pages/Admin/AssignJob";
 import Dashboard from "./pages/Admin/Dashboard";
+import RequestForm from "./pages/RequestForm";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/market-place" element={<MarketPlace />} />
           <Route path="/technical-traning" element={<TechnicalTraining />} />
+          <Route path="/request-form" element={<RequestForm />} />
         </Route>
 
         <Route element={<PrivateRoutes />} path="/console">

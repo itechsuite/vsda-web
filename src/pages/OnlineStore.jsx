@@ -6,8 +6,11 @@ import Modal1 from "../components/Modal/Modal1";
 import FullModal from "../components/Modal/FullModal";
 import FormInput from "../components/Inputs/FormInput";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 
 const OnlineStore = () => {
+  const navigate = useNavigate();
+
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [modal, setModal] = useState(false);
@@ -21,6 +24,7 @@ const OnlineStore = () => {
     product: "",
     extra: "",
   });
+
   const fetchALlProducts = async () => {
     const res = await GET_ALL_PRODUCTS();
     console.log(res);
@@ -63,7 +67,13 @@ const OnlineStore = () => {
                 onClick={() => {
                   setSelected(product);
                   setValues({ ...values, product: product.product_name });
-                  setModal(true);
+                  // setModal(true);
+                  navigate("/request-form", {
+                    state: {
+                      id: "ll",
+                      payload: JSON.stringify(product),
+                    },
+                  });
                 }}
               />
             );
