@@ -2,32 +2,55 @@ import { ChevronRightIcon, HeartIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { CurrencyFormatter } from "../../helper/CurrencyFormatter";
 
-const ProductModel = ({ payload, onClick }) => {
+const ProductModel = ({ payload, onClick, color }) => {
   return (
     <div className="  min-h-[280px] flex flex-col  rounded-lg border relative  ">
-      <div className="absolute right-3 top-3 z-10  bg-blue-400 px-2 text-sm py-1 rounded-lg font-bold uppercase ">
-        <p>New</p>
+      <div className="absolute right-3 top-3 z-10  bg-[#2c3f51] text-white px-2 text-sm py-1 rounded-sm font-bold uppercase ">
+        <p>Featured</p>
       </div>
-      <img
+
+      <div
+        //       style={{
+        //         backgroundImage: `linear-gradient(to bottom, rgba(226,79,67, 0.99), rgba(0,0,0, 0.93)),
+        // url('images/background.jpg') ,url(${payload.product_image})`,
+        //       }}
+        className={`min-h-[200px] ${
+          color || "bg-[#e24f43]"
+        }   flex flex-col items-center justify-center px-10 text-center gap-4`}
+      >
+        <p className=" uppercase text-lg font-bold">{payload.product_name}</p>
+        <p className="font-bold text-white">Price on Request</p>
+      </div>
+      {/* <img
         src={
           payload.product_image || require("../../assets/images/no-image.png")
         }
         alt=""
         className=" max-h-[200px] rounded-tl-lg rounded-tr-lg bg-right-top"
-      />
-      <div className="px-3 py-2 ">
-        <p className=" uppercase text-sm font-bold">{payload.product_name}</p>
+      /> */}
+      <div
+        className=" 
+ [&>*:nth-child(odd)]:bg-gray-200 [&>*:nth-child(even)]:bg-gray-300"
+      >
+        {/* <p className="font-light">{payload.product_details}</p> */}
 
-        <div>
-          <p className="font-light">{payload.product_details}</p>
-        </div>
+        {payload && payload.product_specification
+          ? payload.product_specification.split(",").map((spec, index) => {
+              return (
+                <p className="font-normal mx-auto px-2 py-2 bg-slate-300">
+                  {" "}
+                  {spec}
+                </p>
+              );
+            })
+          : null}
       </div>
 
       <button
-        className="btn  mx-5 my-5 text-sm bg-blue-400 border-none uppercase "
+        className="btn  mx-5 my-5 text-sm bg-blue-400 border-none uppercase  after:-bottom-12 after:border-r-2  after:content-[''] after:-right-9  after:absolute after:-z-10 after:border-2"
         onClick={onClick}
       >
-        Details
+        Request
       </button>
     </div>
   );

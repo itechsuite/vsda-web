@@ -329,7 +329,11 @@ const Skills = () => {
                 value={enrollment.fullname}
                 onChange={handleEnrolmentFormOnChange}
               />
-              <select id="course_name" onChange={handleEnrolmentFormOnChange}>
+              <select
+                id="course_name"
+                onChange={handleEnrolmentFormOnChange}
+                className="py-4 px-2 outline-none"
+              >
                 {courses && courses.length >= 1
                   ? courses.map((course, index) => {
                       return (
@@ -362,7 +366,7 @@ const Skills = () => {
                 onChange={handleEnrolmentFormOnChange}
               />
 
-              <button className="mt-5 btn"> Submit</button>
+              <button className="mt-5 mx-auto w-14 px-20 btn"> Submit</button>
             </form>
           </div>
         )}

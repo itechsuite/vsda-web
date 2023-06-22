@@ -15,11 +15,11 @@ const FullModal = ({ visible, children, onClose, heading }) => {
       id="master"
       onClick={handleClose}
       className={
-        " fixed inset-0 flex   items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm flex-col z-50"
+        " fixed inset-0 flex    items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm flex-col z-50"
       }
     >
       <div
-        className="min-h-[50vh] w-3/4 rounded bg-white "
+        className="max-h-[70vh]  w-3/4 rounded bg-white   overflow-scroll  px-3 "
         onDoubleClick={() => onClose}
       >
         <div
@@ -27,6 +27,8 @@ const FullModal = ({ visible, children, onClose, heading }) => {
           className=" w-full  text-right  flex flex-row justify-end "
         ></div>
         {children}
+
+        {/* <div>heehe</div> */}
       </div>
     </div>
   );
