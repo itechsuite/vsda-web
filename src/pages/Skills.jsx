@@ -96,6 +96,12 @@ const Skills = () => {
   const fetchArtisans = async () => {
     setLoading(true);
     const res = await GET_ALL_ARTISANS(selected);
+
+    if (selected === "") {
+      setArtisans([]);
+      setLoading(false);
+      return;
+    }
     if (res.length <= 0) {
       setArtisans([]);
       setLoading(false);
