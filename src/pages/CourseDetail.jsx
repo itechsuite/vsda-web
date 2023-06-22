@@ -137,7 +137,7 @@ const CourseDetail = () => {
 
         <button
           onClick={() => setModal(true)}
-          className="border w-2/5 px-3 py-4 rounded-full  text-black hover:text-white hover:bg-blue-400 hover:border-none  font-bold btn bg-transparent"
+          className="border w-3/5 px-3 py-2 rounded-full  text-black hover:text-white hover:bg-blue-400 hover:border-none  font-bold btn bg-transparent"
         >
           Enroll this course
         </button>

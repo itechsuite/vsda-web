@@ -8,11 +8,21 @@ import {
 import CoursesViewModels from "../components/view-models/CoursesViewModels";
 import { useNavigate } from "react-router-dom";
 
+import {
+  ScaleLoader,
+  BarLoader,
+  MoonLoader,
+  BeatLoader,
+  FadeLoader,
+  PuffLoader,
+} from "react-spinners";
+
 const Courses = () => {
   const navigate = useNavigate();
   const [courses, setCourses] = useState([]);
   const [category, setCategory] = useState([]);
   const [selected, setSelected] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   var settings = {
     dots: true,
@@ -29,9 +39,11 @@ const Courses = () => {
 
   const fetchAllCourses = async () => {
     const res = await GET_ALL_COURSES();
+    setLoading(false);
     setCourses(res);
     console.log(res);
   };
+
   const fetchCourseByCategory = async (category) => {
     const res = await GET_ALL_COURSE_BY_CATEGORY(category);
     setCourses(res);
@@ -86,23 +98,31 @@ const Courses = () => {
         </div> */}
       </div>
 
-      <div className="py-5">
-        <div className="grid md:grid-cols-3 lg:grid-cols-4  gap-5 py-5 grid-cols-1">
-          {courses && courses.length >= 1 ? (
-            courses.map((course, index) => {
-              return (
-                <CoursesViewModels
-                  key={index}
-                  payload={course}
-                  onClick={() => navigate(`/course/detail/${course.id}`)}
-                />
-              );
-            })
-          ) : (
-            <p> no course found</p>
-          )}
+      {loading && (
+        <div className="py-5">
+          <PuffLoader />
         </div>
-      </div>
+      )}
+
+      {loading === false && (
+        <div className="py-5">
+          <div className="grid md:grid-cols-3 lg:grid-cols-4  gap-5 py-5 grid-cols-1">
+            {courses && courses.length >= 1 ? (
+              courses.map((course, index) => {
+                return (
+                  <CoursesViewModels
+                    key={index}
+                    payload={course}
+                    onClick={() => navigate(`/course/detail/${course.id}`)}
+                  />
+                );
+              })
+            ) : (
+              <p> no course found</p>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
