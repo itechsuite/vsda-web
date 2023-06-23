@@ -193,7 +193,7 @@ const Skills = () => {
         className="flex flex-col md:flex-row "
       >
         <div className="  py-4 gap-5 px-5 h-[90vh] items-center justify-center flex flex-row z-50   md:flex ">
-          <div className="bg-[#e9e9e9] rounded-md min-w-max px-5 py-10  h-fit sticky z-40 ">
+          <div className="bg-[#e9e9e9] rounded-md min-w-[200px] px-5 py-10  h-fit sticky z-40 transition-all ease-in-out ">
             <p className="text-2xl font-bold after:h-1  after:bg-[#989292]  after:absolute relative  after:w-2/3 after:bottom-0 after:left-1 after:content-[''] ">
               Find a Skilled <span className="text-[#3091E9]"> Personel </span>
             </p>
@@ -211,7 +211,7 @@ const Skills = () => {
                           selected === data.name
                             ? "font-extrabold"
                             : "cursor-pointer hover:font-bold"
-                        }  btn   mx-0 bg-transparent text-black border-none hover:bg-blue-200 hover:px-3`}
+                        }  py-2 px-2  mx-0 bg-transparent text-black text-start border-none hover:bg-blue-200 `}
                       id={data.name}
                       onClick={handleSkillClick}
                       key={index}
