@@ -1,28 +1,34 @@
 import { ChevronRightIcon, HeartIcon } from "@heroicons/react/24/outline";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CurrencyFormatter } from "../../helper/CurrencyFormatter";
+import { Pallete, randomColor } from "../../helper/ColorPallete";
 
-const ProductModel = ({ payload, onClick, color }) => {
+const ProductModel = ({ payload, onClick }) => {
+  const [color_value, setColorValue] = useState();
+  useEffect(() => {
+    setColorValue(randomColor());
+  }, []);
+  let color = randomColor();
+
   return (
-    <div className="  min-h-[280px] flex flex-col  rounded-lg border relative  ">
-      <div className="absolute right-3 top-3 z-10  bg-[#2c3f51] text-white px-2 text-sm py-1 rounded-sm font-bold uppercase ">
-        <p>Featured</p>
+    <div className="  min-h-[280px] flex flex-col  rounded-lg  relative  ">
+      <div className="absolute -right-2 top-0 z-10   text-white px-2 text-sm  rounded-sm font-bold uppercase ">
+        <img
+          src={require("../../assets/images/ribon_one.png")}
+          alt="featured"
+        />
       </div>
 
       <div
         style={{
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0, 0.65), rgba(0,0,0, 0.30)),
-        url('images/background.jpg') ,url(${payload.product_image})`,
+          backgroundColor: `${color_value}`,
         }}
-        className={`min-h-[200px] ${color}   flex flex-col items-center justify-center px-10 text-center gap-4`}
+        className={`min-h-[200px] flex flex-col items-center justify-center px-10 text-center gap-4`}
       >
-        <p className=" uppercase text-lg font-bold text-white">
+        <p className=" uppercase text-lg font-extrabold text-black">
           {payload.product_name}
         </p>
-        <p className="font-bold text-white">Price on Request</p>
+        <p className="font-bold ">Price on Request</p>
       </div>
       {/* <img
         src={
@@ -51,7 +57,7 @@ const ProductModel = ({ payload, onClick, color }) => {
       </div>
 
       <button
-        className="btn  mx-5 my-5 text-sm bg-blue-400 border-none uppercase  after:-bottom-12 after:border-r-2  after:content-[''] after:-right-9  after:absolute after:-z-10 after:border-2"
+        className="btn w-1/5  mx-auto my-5 text-sm bg-[#f39c12] border-none uppercase  after:-bottom-12 after:border-r-2  after:content-[''] after:-right-9  after:absolute after:-z-10 after:border-2"
         onClick={onClick}
       >
         Request

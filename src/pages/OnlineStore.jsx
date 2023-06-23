@@ -7,6 +7,7 @@ import FullModal from "../components/Modal/FullModal";
 import FormInput from "../components/Inputs/FormInput";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
+import { randomColor } from "../helper/ColorPallete";
 
 const OnlineStore = () => {
   const navigate = useNavigate();
@@ -62,6 +63,7 @@ const OnlineStore = () => {
           products.map((product, index) => {
             return (
               <ProductModel
+                // color={randomColor()}
                 key={index}
                 payload={product}
                 onClick={() => {

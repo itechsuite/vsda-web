@@ -130,7 +130,7 @@ const RequestForm = ({}) => {
                 onChange={handleFormOnChange}
               />
 
-              <button className="mt-5 btn w-2/5 self-center bg-blue-400 border-none rounded-md">
+              <button className="mt-5 btn w-2/5 self-center bg-blue-950 border-none rounded-md">
                 {" "}
                 Submit
               </button>
