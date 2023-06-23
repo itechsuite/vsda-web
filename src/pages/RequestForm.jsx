@@ -55,7 +55,7 @@ const RequestForm = ({}) => {
               <p>Fill the form and you'll be contacted shortly</p>
             </div>
             <form
-              className="flex flex-col  md:px-10 px-3 gap-4"
+              className="flex flex-col  md:px-10 px-10 gap-4"
               onSubmit={handleSubmitRequest}
             >
               <FormInput
@@ -105,7 +105,7 @@ const RequestForm = ({}) => {
           </div>
         </div>
       ) : (
-        <p> nothing</p>
+        <p> No Content to display</p>
       )}
     </>
   );

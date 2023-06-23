@@ -57,7 +57,7 @@ const OnlineStore = () => {
 
   return (
     <section className="min-h-[80vh] px-5 py-10 w-full  ">
-      <div className="grid gap-10 md:grid-cols-4 grid-cols-2    ">
+      <div className="grid gap-10 md:grid-cols-4 grid-cols-1   ">
         {products && products.length >= 1 ? (
           products.map((product, index) => {
             return (
@@ -70,7 +70,6 @@ const OnlineStore = () => {
                   // setModal(true);
                   navigate("/request-form", {
                     state: {
-                      id: "ll",
                       payload: JSON.stringify(product),
                     },
                   });

@@ -4,9 +4,13 @@ import { COMPOSE_EMAIL } from "../services/mailServices";
 import Modal1 from "./Modal/Modal1";
 import Lottie from "lottie-react";
 import greenTick from "../assets/Lotties/lottie-success.json";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const GetInTouch = () => {
-  const [success, setSuccess] = useState(true);
+  const navigate = useNavigate();
+  const [success, setSuccess] = useState(false);
   const [values, setValue] = useState({
     fullname: "",
     email: "",
@@ -24,8 +28,10 @@ const GetInTouch = () => {
       email === "" ||
       phone_number === "" ||
       message === ""
-    )
+    ) {
+      toast.warn("Please fill all information");
       return;
+    }
 
     const response = await COMPOSE_EMAIL({
       to: "info@vitalskillsda.com",
@@ -35,6 +41,10 @@ const GetInTouch = () => {
     });
 
     console.log(response);
+    if (response.isOk) {
+      setSuccess(true);
+      navigate(0);
+    }
   };
 
   const handleOnChnage = (e) => {
@@ -144,6 +154,8 @@ const GetInTouch = () => {
           <p className="text-center">Your message was sent successfully</p>
         </div>
       </Modal1>
+
+      <ToastContainer />
     </section>
   );
 };

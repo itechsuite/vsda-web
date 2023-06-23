@@ -57,7 +57,7 @@ const CoursesViewModels = ({ payload, onClick }) => {
       <div className=" self-center text-center py-3 w-full ">
         <button
           onClick={onClick}
-          className="bg-blue-600 w-3/4 px-10 py-3 text-white rounded-md "
+          className="bg-blue-600 w-2/4 px-10 py-3 text-white rounded-md "
         >
           Enroll
         </button>
