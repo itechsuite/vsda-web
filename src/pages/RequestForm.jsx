@@ -3,15 +3,16 @@ import FormInput from "../components/Inputs/FormInput";
 import { useLocation, useNavigate } from "react-router-dom";
 import { COMPOSE_EMAIL } from "../services/mailServices";
 import { ToastContainer, toast } from "react-toastify";
+import Modal1 from "../components/Modal/Modal1";
+import greenTick from "../assets/Lotties/lottie-success.json";
 
+import Lottie from "lottie-react";
 const RequestForm = ({}) => {
   //   const { product } = props.location.state;
 
   const navigate = useNavigate();
   const location = useLocation();
   const payload = JSON.parse(location.state.payload);
-
-  console.log(payload.amount);
 
   const [success, setSuccess] = useState(false);
   const [values, setValues] = useState({
@@ -139,6 +140,14 @@ const RequestForm = ({}) => {
       ) : (
         <p> No Content to display</p>
       )}
+
+      <Modal1 visible={success} onClose={() => setSuccess(false)}>
+        <div className="min-h-[300px] h-full justify-center flex flex-col items-center">
+          <Lottie className="w-[100px]" animationData={greenTick}></Lottie>
+          <p className="font-bold text-2xl ">Message sent</p>
+          <p className="text-center">Your message was sent successfully</p>
+        </div>
+      </Modal1>
 
       <ToastContainer />
     </>
