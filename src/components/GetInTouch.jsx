@@ -40,36 +40,46 @@ const GetInTouch = () => {
   };
 
   return (
-    <section className="min-h-[50vh] py-5 px-5  py-4  ">
+    <section className="min-h-[50vh] py-5 mx-auto  w-4/5  ">
       <div className="flex  gap-2 my-20">
         <p className="bg-[#e41315]">&nbsp;</p>
-        <p className="text-3xl font-black text-[#e41315]">Get In Touch</p>
+        <p className="text-5xl font-[700] text-[45px] text-[#e41315]">
+          Get In Touch
+        </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 w-auto ">
         <div className="py-5 flex flex-col gap-4 ">
           <div className="">
-            <p className="font-semibold text-blue-400">Mail</p>
-            <a className="" href="mailto:Info@vitalskillsda.com">
+            <p className="font-[600] text-[22px]  text-[#20247b]">Mail</p>
+            <a
+              className="text-[#666666] text-[18px] leading-[30px]"
+              href="mailto:Info@vitalskillsda.com"
+            >
               Info@vitalskillsda.com
             </a>
           </div>
           <div>
-            <p className="font-semibold text-blue-400">Phone </p>
-            <a className="" href="tel:+234(0)8026393322">
+            <p className="font-[600] text-[22px]  text-[#20247b]">Phone </p>
+            <a
+              className=" text-[#666666] text-[18px] leading-[30px]"
+              href="tel:+234(0)8026393322"
+            >
               +234(0)8026393322
             </a>
           </div>
           <div>
-            <p className="font-semibold text-blue-400">Office Address </p>
-            <p className="">
+            <p className="font-[600] text-[22px]  text-[#20247b]">
+              Office Address{" "}
+            </p>
+            <p className=" text-[#666666] text-[18px] leading-[30px]">
               18 Trans Woji Road, Opposite NNPC Filling Station, Rivers State,
               Port Harcourt
             </p>
           </div>
         </div>
 
-        <div>
-          <p className="my-1">&nbsp;</p>
+        <div className="mt-20">
+          {/* <p className="my-1">&nbsp;</p> */}
           <form
             action=""
             className="w-full flex  flex-col   gap-5 px-3"
@@ -77,7 +87,7 @@ const GetInTouch = () => {
           >
             <div className="flex  gap-5">
               <FormInput
-                className=""
+                className=" leading-normal"
                 title={"Fullname"}
                 placeholder={"Full Name"}
                 id={"fullname"}
@@ -86,7 +96,7 @@ const GetInTouch = () => {
                 onChange={handleOnChnage}
               />
               <FormInput
-                className="  "
+                className=" leading-normal"
                 title={"Email Address"}
                 placeholder={"Email Address"}
                 id={"email"}
@@ -103,6 +113,7 @@ const GetInTouch = () => {
               type={"text"}
               value={values.phone_number}
               onChange={handleOnChnage}
+              className=" leading-normal"
             />
 
             <textarea

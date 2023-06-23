@@ -200,7 +200,7 @@ const Skills = () => {
 
             {/* Skills market place application */}
 
-            <div className="py-6 col-span-8 flex flex-col gap-3" autoFocus>
+            <div className="py-6 col-span-8 flex flex-col gap-1" autoFocus>
               {skill.length >= 1 ? (
                 skill.map((data, index) => {
                   return (
@@ -211,7 +211,7 @@ const Skills = () => {
                           selected === data.name
                             ? "font-extrabold"
                             : "cursor-pointer hover:font-bold"
-                        } btn text-start px-0 mx-0 bg-transparent text-black border-none hover:bg-blue-200 hover:px-3`}
+                        }  btn   mx-0 bg-transparent text-black border-none hover:bg-blue-200 hover:px-3`}
                       id={data.name}
                       onClick={handleSkillClick}
                       key={index}
