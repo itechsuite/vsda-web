@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import FormInput from "../components/Inputs/FormInput";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { COMPOSE_EMAIL } from "../services/mailServices";
+import { ToastContainer, toast } from "react-toastify";
 
 const RequestForm = ({}) => {
   //   const { product } = props.location.state;
 
+  const navigate = useNavigate();
   const location = useLocation();
   const payload = JSON.parse(location.state.payload);
 
   console.log(payload.amount);
+
+  const [success, setSuccess] = useState(false);
   const [values, setValues] = useState({
     fullname: "",
     address: "",
@@ -20,6 +25,33 @@ const RequestForm = ({}) => {
 
   async function handleSubmitRequest(e) {
     e.preventDefault();
+
+    const { fullname, email, address, phoneNumber, product, extra } = values;
+
+    //petty validation
+    if (
+      fullname === "" ||
+      email === "" ||
+      address === "" ||
+      phoneNumber === "" ||
+      product === ""
+    ) {
+      toast.warn("Please fill all information");
+      return;
+    }
+
+    const response = await COMPOSE_EMAIL({
+      to: "info@vitalskillsda.com",
+      // from: "goodluckcanhelp@gmail.c",
+      message: `${product} \n Details: \r  Name: ${fullname} \r email: ${email} \r Mobile: ${phoneNumber}  \r Address: ${address} `,
+      subject: `Product Request  ${product} -  From: ${fullname} ${email}`,
+    });
+
+    console.log(response);
+    if (response.isOk) {
+      setSuccess(true);
+      navigate(0);
+    }
 
     //
   }
@@ -107,6 +139,8 @@ const RequestForm = ({}) => {
       ) : (
         <p> No Content to display</p>
       )}
+
+      <ToastContainer />
     </>
   );
 };
