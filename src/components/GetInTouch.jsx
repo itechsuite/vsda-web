@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import FormInput from "./Inputs/FormInput";
 import { COMPOSE_EMAIL } from "../services/mailServices";
+import Modal1 from "./Modal/Modal1";
+import Lottie from "lottie-react";
+import greenTick from "../assets/Lotties/lottie-success.json";
 
 const GetInTouch = () => {
+  const [success, setSuccess] = useState(true);
   const [values, setValue] = useState({
     fullname: "",
     email: "",
@@ -30,7 +34,7 @@ const GetInTouch = () => {
       subject: `Contact Mail from: ${fullname} - ${email}`,
     });
 
-    // console.log(response);
+    console.log(response);
   };
 
   const handleOnChnage = (e) => {
@@ -47,7 +51,7 @@ const GetInTouch = () => {
           Get In Touch
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 w-auto ">
+      <div className="grid grid-cols-a1 md:grid-cols-2 w-auto ">
         <div className="py-5 flex flex-col gap-4 ">
           <div className="">
             <p className="font-[600] text-[22px]  text-[#20247b]">Mail</p>
@@ -72,8 +76,8 @@ const GetInTouch = () => {
               Office Address{" "}
             </p>
             <p className=" text-[#666666] text-[18px] leading-[30px]">
-              18 Trans Woji Road, Opposite NNPC Filling Station, Rivers State,
-              Port Harcourt
+              18 Trans Woji Road, Opposite NNPC Filling Station, <br /> Rivers
+              State, Port Harcourt
             </p>
           </div>
         </div>
@@ -96,7 +100,7 @@ const GetInTouch = () => {
                 onChange={handleOnChnage}
               />
               <FormInput
-                className=" leading-normal"
+                className=" leading-normal "
                 title={"Email Address"}
                 placeholder={"Email Address"}
                 id={"email"}
@@ -117,7 +121,7 @@ const GetInTouch = () => {
             />
 
             <textarea
-              className="outline-none w-full min-h-min font-semibold"
+              className="outline-none w-full min-h-min font-semibold border-b-[1px] border-[#20247b]"
               id="message"
               placeholder="Enter message"
               value={values.message}
@@ -132,6 +136,14 @@ const GetInTouch = () => {
           </form>
         </div>
       </div>
+
+      <Modal1 visible={success} onClose={() => setSuccess(false)}>
+        <div className="min-h-[300px] h-full justify-center flex flex-col items-center">
+          <Lottie className="w-[100px]" animationData={greenTick}></Lottie>
+          <p className="font-bold text-2xl ">Message sent</p>
+          <p className="text-center">Your message was sent successfully</p>
+        </div>
+      </Modal1>
     </section>
   );
 };

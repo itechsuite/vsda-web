@@ -19,7 +19,7 @@ const FormInput = ({
       <input
         disabled={disabled}
         className={
-          " py-3 rounded-sm  border-b-2 outline-none bg-transparent w-full"
+          " py-3 rounded-sm  border-b-[1px] border-[#20247b] outline-none bg-transparent w-full"
         }
         type={type || "text"}
         placeholder={placeholder || "dummy"}
