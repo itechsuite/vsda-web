@@ -7,9 +7,11 @@ import Modal1 from "../components/Modal/Modal1";
 import greenTick from "../assets/Lotties/lottie-success.json";
 
 import Lottie from "lottie-react";
+import useScrollToTop from "../hooks/useScrollToTop";
 const RequestForm = ({}) => {
   //   const { product } = props.location.state;
 
+  const scrolltotop = useScrollToTop();
   const navigate = useNavigate();
   const location = useLocation();
   const payload = JSON.parse(location.state.payload);
