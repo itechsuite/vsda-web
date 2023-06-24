@@ -57,7 +57,7 @@ const ProductModel = ({ payload, onClick }) => {
       </div>
 
       <button
-        className="btn w-1/5  mx-auto my-5 text-sm bg-[#f39c12] border-none uppercase  after:-bottom-12 after:border-r-2  after:content-[''] after:-right-9  after:absolute after:-z-10 after:border-2"
+        className="btn w-2/5  px-5 mx-auto my-5 text-sm bg-[#f39c12] border-none uppercase  after:-bottom-12 after:border-r-2  after:content-[''] after:-right-9  after:absolute after:-z-10 after:border-2"
         onClick={onClick}
       >
         Request
