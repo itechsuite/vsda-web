@@ -1,10 +1,18 @@
 import React from "react";
 import FlexLayout from "../components/Layouts/FlexLayout";
+import useAutoFocus from "../hooks/useAutoFocus";
 
 const AboutUs = () => {
+  const maindiv = useAutoFocus();
   return (
-    <section className="my-5 flex-col flex gap-5 min-h-[100vh]  py-5">
-      <div className="px-10 py-5 flex  flex-col items-center gap-10 min-h-[250px]  bg-[#eeeaf2]  mx-20 ">
+    <section
+      className="my-5 flex-col flex gap-5 min-h-[100vh]  py-5"
+      ref={maindiv}
+    >
+      <div
+        className="md:px-10 px-5 py-5 flex  flex-col items-center gap-10 min-h-[250px]  bg-[#eeeaf2]  md:mx-20 mx-5 "
+        autoFocus
+      >
         <p className="font-extrabold text-2xl"> Putting You First</p>
         <p>
           Vital Skills Development Academy is Built on The Knowledge And
