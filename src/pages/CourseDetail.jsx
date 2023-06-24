@@ -11,8 +11,10 @@ import PageLoader from "../components/Loaders/PageLoader";
 import FormInput from "../components/Inputs/FormInput";
 import Lottie from "lottie-react";
 import successLottie from "../assets/Lotties/lottie-success.json";
+import useScrollToTop from "../hooks/useScrollToTop";
 
 const CourseDetail = () => {
+  const scrolltoTOp = useScrollToTop();
   const { id } = useParams();
   const [course_detail, setCourseDetail] = useState("");
   const [loading, setLoading] = useState(true);
@@ -95,6 +97,7 @@ const CourseDetail = () => {
 
   return (
     <section className=" min-h-[100vh] px-5 py-3">
+      <input type="text" className="hidden" autoFocus />
       <div className="flex flex-col gap-4">
         <div
           className="min-h-[300px] flex justify-center items-center  flex-col"
