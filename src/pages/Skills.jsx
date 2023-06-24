@@ -17,6 +17,7 @@ import { COMPOSE_EMAIL } from "../services/mailServices";
 import { DEFUALT_EMAIL_SENDER } from "../core/constants";
 import { ToastContainer, toast } from "react-toastify";
 import { GET_ALL_COURSES, GET_ALL_COURSES2 } from "../services/CourseServices";
+import useScrollToTop from "../hooks/useScrollToTop";
 const Skills = () => {
   const personels_container = useRef(null);
 
@@ -47,6 +48,8 @@ const Skills = () => {
     fullname: "",
     phoneNumber: "",
   });
+
+  const scrolltotop = useScrollToTop();
 
   const handleEnrolment = async (e) => {
     e.preventDefault();
@@ -182,6 +185,7 @@ const Skills = () => {
     }
     setCourses(res.data);
   }
+
   return (
     <div className="py-5">
       <section

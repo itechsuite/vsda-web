@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FlexLayout from "../components/Layouts/FlexLayout";
 import useAutoFocus from "../hooks/useAutoFocus";
+import useScrollToTop from "../hooks/useScrollToTop";
 
 const AboutUs = () => {
-  const maindiv = useAutoFocus();
+  const scrolltotop = useScrollToTop();
+
   return (
-    <section
-      className="my-5 flex-col flex gap-5 min-h-[100vh]  py-5"
-      ref={maindiv}
-    >
+    <section className="my-5 flex-col flex gap-5 min-h-[100vh]  py-5">
       <div
         className="md:px-10 px-5 py-5 flex  flex-col items-center gap-10 min-h-[250px]  bg-[#eeeaf2]  md:mx-20 mx-5 "
         autoFocus
