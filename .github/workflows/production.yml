@@ -29,4 +29,4 @@ jobs:
         server: ${{secrets.server}}
         username: ${{secrets.username}}
         password: ${{secrets.password }}
-        server-dir: /staging.vitalskillsda.com/
+        server-dir: /httpdocs/
