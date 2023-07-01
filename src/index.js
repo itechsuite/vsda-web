@@ -8,7 +8,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "react-toastify/dist/ReactToastify.css";
 // import "video-react/dist/video-react.css";
-
+import "./modal.css";
+// import "react-modal-video/scss/modal-video.scss";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

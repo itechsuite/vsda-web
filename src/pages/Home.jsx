@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Hero from "../components/Hero/Hero";
 import Banner from "../components/Banner";
 import FeaturedCourses from "../components/FeaturedCourses";
@@ -12,8 +12,26 @@ import SlickCarousel from "../components/Carousels/SlickCarousel";
 import IntroVideo from "../components/IntroVideo";
 import GetInTouch from "../components/GetInTouch";
 import OurTrainingHub from "../components/OurTrainingHub";
+import ModalVideo from "react-modal-video";
 
 const Home = () => {
+  const [isOpen, setOpen] = useState(true);
+
+  const firstVisit = () => {
+    const firstVisit = localStorage.getItem("firstVisit");
+
+    if (!firstVisit === "1") {
+      return;
+    }
+    setOpen(true);
+    localStorage.setItem("firstVisit", "1");
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      firstVisit();
+    }, 3000);
+  }, []);
   return (
     <div className="">
       {/* <Banner link={require("../assets/images/home/electrician.jpg")} /> */}
@@ -34,6 +52,13 @@ const Home = () => {
 
       <GetInTouch />
       {/* <Partners /> */}
+
+      <ModalVideo
+        channel="custom"
+        isOpen={isOpen}
+        url="https://console.vitalskillsda.com/images/welcom.mp4"
+        onClose={() => setOpen(false)}
+      />
     </div>
   );
 };
