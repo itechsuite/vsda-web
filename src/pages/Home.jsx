@@ -15,12 +15,12 @@ import OurTrainingHub from "../components/OurTrainingHub";
 import ModalVideo from "react-modal-video";
 
 const Home = () => {
-  const [isOpen, setOpen] = useState(true);
+  const [isOpen, setOpen] = useState(false);
 
   const firstVisit = () => {
     const firstVisit = localStorage.getItem("firstVisit");
 
-    if (!firstVisit === "1") {
+    if (firstVisit === "1") {
       return;
     }
     setOpen(true);
