@@ -29,7 +29,7 @@ const Home = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      firstVisit();
+      // firstVisit();
     }, 3000);
   }, []);
   return (
@@ -55,6 +55,8 @@ const Home = () => {
 
       <ModalVideo
         channel="custom"
+        allowFullScreen
+        autoplay="1"
         isOpen={isOpen}
         url="https://console.vitalskillsda.com/images/welcom.mp4"
         onClose={() => setOpen(false)}

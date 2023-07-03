@@ -2,8 +2,18 @@ import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import { Link } from "react-router-dom";
+import YouTube from "react-youtube";
 
 const SlickCarousel = () => {
+  const opts = {
+    height: "100%",
+    width: "100%",
+    title: "Intro",
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+    },
+  };
   return (
     <div>
       <Carousel
@@ -15,6 +25,24 @@ const SlickCarousel = () => {
         useKeyboardArrows={true}
       >
         {/*  bg-[url('/src/assets/images/automation.png')] */}
+        <section className="min-h-[70vh] md:min-h-[100vh] relative  bg-cover flex flex-col gap-3   items-center justify-center   ">
+          <YouTube
+            videoId="VW-vlbZQz3g"
+            opts={{
+              height: "100%",
+              width: "100%",
+              title: "Intro",
+              playerVars: {
+                autoplay: 1,
+              },
+            }}
+          />
+          <div className=" flex  gap-3  flex-col   right-20  top-32 bottom-30 items-center justify-center  px-20">
+            <p className="text-2xl text-gray-300">
+              Make reservation and get it delivered in 24 Hours
+            </p>
+          </div>
+        </section>
         <section
           className="min-h-[70vh] md:min-h-[100vh] relative  bg-cover flex flex-col gap-3   items-center justify-center   "
           style={{
