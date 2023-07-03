@@ -53,14 +53,14 @@ const Home = () => {
       <GetInTouch />
       {/* <Partners /> */}
 
-      <ModalVideo
+      {/* <ModalVideo
         channel="custom"
         allowFullScreen
         autoplay="1"
         isOpen={isOpen}
         url="https://console.vitalskillsda.com/images/welcom.mp4"
         onClose={() => setOpen(false)}
-      />
+      /> */}
     </div>
   );
 };

@@ -19,12 +19,16 @@ import PrivateRoutes from "./routes/PrivateRoutes";
 import AssignJob from "./pages/Admin/AssignJob";
 import Dashboard from "./pages/Admin/Dashboard";
 import RequestForm from "./pages/RequestForm";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import SplashScreen from "./pages/SplashScreen";
 
 function App() {
   return (
     <div className="">
       <Routes>
+        {localStorage.getItem("firstVisit") !== "1" && (
+          <Route path="" element={<SplashScreen />} />
+        )}
         <Route element={<PublicRoutes />}>
           <Route path="/about" element={<About />} />
           {/* <Route path="" element={<Contact />} /> */}
@@ -35,7 +39,20 @@ function App() {
           <Route path="/online" element={<OnlineStore />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/course/detail/:id" element={<CourseDetail />} />
-          <Route path="" element={<Home />} />
+          {/* <Route
+            path=""
+            element={
+              localStorage.getItem("firstVisit") === "1" ? (
+                <Home />
+              ) : (
+                <SplashScreen />
+              )
+            }
+          /> */}
+          {localStorage.getItem("firstVisit") === "1" && (
+            <Route path="" element={<Home />} />
+          )}
+
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/market-place" element={<MarketPlace />} />
           <Route path="/technical-traning" element={<TechnicalTraining />} />
