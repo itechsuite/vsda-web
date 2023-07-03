@@ -22,13 +22,13 @@ const SplashScreen = () => {
           onClick={handleOnclick}
           className="absolute  text-white flex text-sm gap-2  items-center justify-center  flex-row text-black cursor-pointer  bottom-32 right-5 px-3 rounded-sm py-2 bg-opacity-70 hover:font-bold md:bottom-32 md:bg-opacity-40   bg-black "
         >
-          <p>Skip Ads</p>
+          <p>Skip Video</p>
           <PlayPauseIcon className="w-10" />
         </div>
       )}
 
       <iframe
-        src="https://www.youtube.com/embed/VW-vlbZQz3g?rel=0&modestbranding=1&autohide=1&mute=0&showinfo=0&controls=0&autoplay=1"
+        src="https://www.youtube.com/embed/VW-vlbZQz3g?rel=0&modestbranding=1&autohide=1&mute=0&showinfo=0&controls=1&autoplay=1"
         width="100%"
         height="100%"
         frameborder="0"
